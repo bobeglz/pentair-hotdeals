@@ -27,13 +27,13 @@
 - [x] **T-109** Card de resultado: muestra plazo de envío (60 días)
 - [x] **T-110** Estado "No disponible" cuando no hay rebate para país/producto
 - [x] **T-111** Badge de advertencia si quedan <30 días de vigencia
-- [ ] **T-112** Mostrar imagen del producto en el resultado
-- [ ] **T-113** Link funcional a términos y condiciones (abre URL externa)
+- [x] **T-112** Mostrar imagen del producto en el resultado ✅ Sprint 1
+- [x] **T-113** Link funcional a términos y condiciones (abre URL externa) ✅ Sprint 1
 
 ### 1.2 Header & Branding
-- [ ] **T-201** Integrar logo Pentair real en header (`assets/logos/pentair-logo-white.png`)
-- [ ] **T-202** Mostrar fecha de última actualización en header
-- [ ] **T-203** Header con gradiente Pentair (azul oscuro → azul claro)
+- [x] **T-201** Integrar logo Pentair real en header (`assets/logos/pentair-logo-white.png`) ✅ Sprint 1
+- [x] **T-202** Mostrar fecha de última actualización en header ✅ Sprint 1
+- [x] **T-203** Header con gradiente Pentair (azul oscuro → azul claro) ✅ Sprint 1
 
 ### 1.3 Vista de Tabla Completa
 - [ ] **T-301** Crear ruta `/tabla` o tab de navegación
@@ -72,11 +72,11 @@
 - [ ] **T-508** Opción "Descargar PDF" (reutiliza T-402)
 
 ### 1.6 PWA & Offline
-- [ ] **T-601** Crear `manifest.json` con metadata correcta
-- [ ] **T-602** Generar ícono PWA 192x192 desde `pentair-app-icon.png`
-- [ ] **T-603** Generar ícono PWA 512x512 desde `pentair-app-icon.png`
-- [ ] **T-604** Configurar `theme_color` (#005A8C)
-- [ ] **T-605** Configurar `background_color` (#FFFFFF)
+- [x] **T-601** Crear `manifest.json` con metadata correcta ✅ Setup
+- [x] **T-602** Generar ícono PWA 192x192 desde `pentair-app-icon.png` ✅ Sprint 1
+- [x] **T-603** Generar ícono PWA 512x512 desde `pentair-app-icon.png` ✅ Sprint 1
+- [x] **T-604** Configurar `theme_color` (#005A8C) ✅ Setup
+- [x] **T-605** Configurar `background_color` (#FFFFFF) ✅ Setup
 - [ ] **T-606** App instalable en iOS (Add to Home Screen)
 - [ ] **T-607** App instalable en Android (Add to Home Screen)
 - [ ] **T-608** Service Worker cachea `rebates.json`
@@ -100,10 +100,10 @@
 - [ ] **T-805** App accesible en `https://pentairlatam.com`
 
 ### 1.9 Assets & Optimización
-- [ ] **T-901** Copiar logos a `/public/logos/`
-- [ ] **T-902** Copiar imágenes de productos a `/public/products/`
-- [ ] **T-903** Optimizar imágenes (webp, tamaño apropiado)
-- [ ] **T-904** Favicon desde logo Pentair
+- [x] **T-901** Copiar logos a `/public/logos/` ✅ Sprint 1
+- [x] **T-902** Copiar imágenes de productos a `/public/products/` ✅ Sprint 1
+- [x] **T-903** Optimizar imágenes (webp, tamaño apropiado) ✅ Sprint 1
+- [x] **T-904** Favicon desde logo Pentair ✅ Sprint 1
 - [ ] **T-905** Meta tags Open Graph (título, descripción, imagen)
 - [ ] **T-906** Meta tag `apple-mobile-web-app-capable`
 
@@ -134,16 +134,16 @@
 | Sección | Completadas | Total | % |
 |---------|-------------|-------|---|
 | 1.0 Setup | 7 | 7 | 100% |
-| 1.1 Calculadora | 11 | 13 | 85% |
-| 1.2 Header | 0 | 3 | 0% |
+| 1.1 Calculadora | 13 | 13 | 100% ✅ |
+| 1.2 Header | 3 | 3 | 100% ✅ |
 | 1.3 Vista Tabla | 0 | 10 | 0% |
 | 1.4 PDF | 0 | 12 | 0% |
 | 1.5 Compartir | 0 | 8 | 0% |
-| 1.6 PWA | 0 | 10 | 0% |
+| 1.6 PWA | 5 | 10 | 50% |
 | 1.7 Analytics | 0 | 7 | 0% |
 | 1.8 Deploy | 0 | 5 | 0% |
-| 1.9 Assets | 0 | 6 | 0% |
-| **FASE 1 TOTAL** | **18** | **81** | **22%** |
+| 1.9 Assets | 4 | 6 | 67% |
+| **FASE 1 TOTAL** | **32** | **81** | **40%** |
 | 2.1 Infra Bot | 0 | 4 | 0% |
 | 2.2 Bot | 0 | 8 | 0% |
 | **FASE 2 TOTAL** | **0** | **12** | **0%** |
@@ -170,4 +170,4 @@
 
 ---
 
-*Última actualización: 2026-01-26*
+*Última actualización: 2026-01-26 09:50 — Sprint 1 completado*
