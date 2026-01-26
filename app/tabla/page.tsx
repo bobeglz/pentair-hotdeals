@@ -12,6 +12,7 @@ import { Header } from "@/components/Header";
 import { BottomNav } from "@/components/BottomNav";
 import { useI18n } from "@/lib/i18n/context";
 import { CountrySheet } from "@/components/CountrySheet";
+import { ShareSheet } from "@/components/ShareSheet";
 
 // Product image mapping
 const productImages: Record<string, string> = {
@@ -34,6 +35,7 @@ export default function TablaPage() {
   const [expandedCard, setExpandedCard] = useState<string | null>(null);
   const [sheetRebate, setSheetRebate] = useState<Rebate | null>(null);
   const [sheetAction, setSheetAction] = useState<"pdf" | "share" | null>(null);
+  const [shareData, setShareData] = useState<{ rebate: Rebate; country: Country } | null>(null);
 
   // Filtrar rebates por país
   const filteredRebates = useMemo(() => {
@@ -360,7 +362,7 @@ export default function TablaPage() {
           countries={sheetRebate.countries
             .map((code) => data.countries.find((c) => c.code === code))
             .filter((c): c is Country => c !== undefined)}
-          title={sheetAction === "pdf" ? "Generar PDF para:" : "Enviar a:"}
+          title={sheetAction === "pdf" ? "Generar PDF para:" : "Compartir para:"}
           onSelect={(country) => {
             if (sheetAction === "pdf") {
               trackEvent("pdf_generated", {
@@ -368,15 +370,28 @@ export default function TablaPage() {
                 country: country.code,
               });
               generateRebatePDF({ rebate: sheetRebate, country });
+              setSheetRebate(null);
+              setSheetAction(null);
+            } else {
+              // Open share sheet with selected country
+              setShareData({ rebate: sheetRebate, country });
+              setSheetRebate(null);
+              setSheetAction(null);
             }
-            // For share, we'd need to open share menu - for now just close
-            setSheetRebate(null);
-            setSheetAction(null);
           }}
           onClose={() => {
             setSheetRebate(null);
             setSheetAction(null);
           }}
+        />
+      )}
+
+      {/* Share Sheet */}
+      {shareData && (
+        <ShareSheet
+          rebate={shareData.rebate}
+          country={shareData.country}
+          onClose={() => setShareData(null)}
         />
       )}
     </main>
