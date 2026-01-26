@@ -253,9 +253,9 @@ export default function TablaPage() {
                           )}
 
                           {/* Actions */}
-                          <div className="flex gap-2 pt-1">
+                          <div className="pt-1">
                             {selectedCountry !== "all" && selectedCountryData ? (
-                              <>
+                              <div className="flex gap-2">
                                 <button
                                   onClick={() => {
                                     trackEvent("pdf_generated", {
@@ -271,18 +271,54 @@ export default function TablaPage() {
                                 <div className="flex-1">
                                   <ShareMenu rebate={rebate} country={selectedCountryData} />
                                 </div>
-                              </>
+                                <Link
+                                  href={`/terminos/${rebate.id}`}
+                                  className="flex-1 border border-[#0D274D] text-[#0D274D] text-xs font-semibold py-2.5 px-3 rounded-lg text-center active:bg-gray-50"
+                                >
+                                  📋 T&C
+                                </Link>
+                              </div>
                             ) : (
-                              <div className="flex-1 bg-gray-100 text-gray-500 text-xs font-medium py-2.5 px-3 rounded-lg text-center">
-                                {t.common.selectCountryFirst}
+                              <div className="space-y-2">
+                                <div className="text-xs text-gray-500 text-center mb-2">
+                                  Elige país para generar PDF:
+                                </div>
+                                <div className="flex flex-wrap gap-2 justify-center">
+                                  {rebate.countries.slice(0, 4).map((countryCode) => {
+                                    const countryData = data.countries.find((c) => c.code === countryCode);
+                                    if (!countryData) return null;
+                                    return (
+                                      <button
+                                        key={countryCode}
+                                        onClick={() => {
+                                          trackEvent("pdf_generated", {
+                                            product: rebate.name,
+                                            country: countryCode,
+                                          });
+                                          generateRebatePDF({ rebate, country: countryData });
+                                        }}
+                                        className="bg-[#00A651] text-white text-xs font-semibold py-2 px-3 rounded-lg active:bg-[#00953F]"
+                                      >
+                                        {countryData.flag} PDF
+                                      </button>
+                                    );
+                                  })}
+                                  {rebate.countries.length > 4 && (
+                                    <span className="text-xs text-gray-400 self-center">
+                                      +{rebate.countries.length - 4} más
+                                    </span>
+                                  )}
+                                </div>
+                                <div className="flex gap-2 pt-1">
+                                  <Link
+                                    href={`/terminos/${rebate.id}`}
+                                    className="flex-1 border border-[#0D274D] text-[#0D274D] text-xs font-semibold py-2.5 px-3 rounded-lg text-center active:bg-gray-50"
+                                  >
+                                    📋 T&C
+                                  </Link>
+                                </div>
                               </div>
                             )}
-                            <Link
-                              href={`/terminos/${rebate.id}`}
-                              className="flex-1 border border-[#0D274D] text-[#0D274D] text-xs font-semibold py-2.5 px-3 rounded-lg text-center active:bg-gray-50"
-                            >
-                              📋 T&C
-                            </Link>
                           </div>
                         </div>
                       )}
