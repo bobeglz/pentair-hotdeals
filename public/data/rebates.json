@@ -2,15 +2,18 @@
   "lastUpdated": "2026-01-26",
   "countries": [
     { "code": "US", "name": "Estados Unidos", "flag": "🇺🇸" },
-    { "code": "PR", "name": "Puerto Rico", "flag": "🇵🇷" },
+    { "code": "CA", "name": "Canadá", "flag": "🇨🇦" },
     { "code": "MX", "name": "México", "flag": "🇲🇽" },
+    { "code": "PR", "name": "Puerto Rico", "flag": "🇵🇷" },
+    { "code": "AN", "name": "Antillas (Netherlands)", "flag": "🇧🇶" },
     { "code": "CR", "name": "Costa Rica", "flag": "🇨🇷" },
     { "code": "EC", "name": "Ecuador", "flag": "🇪🇨" },
     { "code": "SV", "name": "El Salvador", "flag": "🇸🇻" },
     { "code": "GT", "name": "Guatemala", "flag": "🇬🇹" },
     { "code": "HN", "name": "Honduras", "flag": "🇭🇳" },
     { "code": "JM", "name": "Jamaica", "flag": "🇯🇲" },
-    { "code": "PE", "name": "Perú", "flag": "🇵🇪" }
+    { "code": "PE", "name": "Perú", "flag": "🇵🇪" },
+    { "code": "TT", "name": "Trinidad y Tobago", "flag": "🇹🇹" }
   ],
   "categories": [
     {
@@ -33,6 +36,20 @@
       "icon": "💧",
       "type": "upgrade",
       "description": "Rebate por upgrade a bombas de velocidad variable"
+    },
+    {
+      "id": "lighting",
+      "name": "Iluminación",
+      "icon": "💡",
+      "type": "bounty",
+      "description": "Rebate por reemplazo de luces Pentair o competencia"
+    },
+    {
+      "id": "chlorinators",
+      "name": "Cloradores",
+      "icon": "⚡",
+      "type": "bounty",
+      "description": "Rebate por reemplazo de generadores de cloro de competencia"
     }
   ],
   "rebates": [
@@ -49,7 +66,7 @@
       "paymentMethod": "Tarjeta virtual Mastercard",
       "type": "bounty",
       "competitorBrands": ["Jandy", "Hayward", "Raypak", "Lochinvar", "Laars"],
-      "countries": ["US", "PR", "MX", "CR", "EC", "SV", "GT", "HN", "JM", "PE"],
+      "countries": ["US", "CA", "MX", "AN", "EC", "SV", "GT", "HN", "JM", "PE", "TT", "CR"],
       "skus": [],
       "termsUrl": "https://www.pentair.com/hotdeals"
     },
@@ -66,7 +83,7 @@
       "paymentMethod": "Tarjeta virtual Mastercard",
       "type": "bounty",
       "competitorBrands": ["Jandy", "Hayward", "Raypak", "Lochinvar", "Laars"],
-      "countries": ["US", "PR", "MX", "CR", "EC", "SV", "GT", "HN", "JM", "PE"],
+      "countries": ["US", "CA", "MX", "AN", "EC", "SV", "GT", "HN", "JM", "PE", "TT", "CR"],
       "skus": [],
       "termsUrl": "https://www.pentair.com/hotdeals"
     },
@@ -82,7 +99,7 @@
       "submissionDeadlineDays": 60,
       "paymentMethod": "Tarjeta virtual Mastercard",
       "type": "standard",
-      "countries": ["US", "PR", "MX", "CR", "EC", "SV", "GT", "HN", "JM", "PE"],
+      "countries": ["US", "CA", "MX", "PR", "AN", "EC", "SV", "GT", "HN", "JM", "PE", "TT", "CR"],
       "skus": [
         { "sku": "160340", "model": "Clean & Clear® Plus 320" },
         { "sku": "160301", "model": "Clean & Clear® Plus 420" },
@@ -102,7 +119,7 @@
       "submissionDeadlineDays": 60,
       "paymentMethod": "Tarjeta virtual Mastercard",
       "type": "standard",
-      "countries": ["US", "PR", "MX", "CR", "EC", "SV", "GT", "HN", "JM", "PE"],
+      "countries": ["US", "CA", "MX", "PR", "AN", "EC", "SV", "GT", "HN", "JM", "PE", "TT", "CR"],
       "skus": [
         { "sku": "160448", "model": "FullFloXF™ C620" }
       ],
@@ -120,7 +137,7 @@
       "submissionDeadlineDays": 60,
       "paymentMethod": "Tarjeta virtual Mastercard",
       "type": "standard",
-      "countries": ["US", "PR", "MX", "CR", "EC", "SV", "GT", "HN", "JM", "PE"],
+      "countries": ["US", "CA", "MX", "PR", "AN", "EC", "SV", "GT", "HN", "JM", "PE", "TT", "CR"],
       "skus": [
         { "sku": "140264", "model": "Tritón® II TR60" }
       ],
@@ -138,7 +155,7 @@
       "submissionDeadlineDays": 60,
       "paymentMethod": "Tarjeta virtual Mastercard",
       "type": "standard",
-      "countries": ["US", "PR", "MX", "CR", "EC", "SV", "GT", "HN", "JM", "PE"],
+      "countries": ["US", "CA", "MX", "PR", "AN", "EC", "SV", "GT", "HN", "JM", "PE", "TT", "CR"],
       "skus": [
         { "sku": "160354", "model": "Clean & Clear® RP 100" },
         { "sku": "160355", "model": "Clean & Clear® RP 150" },
@@ -158,7 +175,7 @@
       "submissionDeadlineDays": 60,
       "paymentMethod": "Tarjeta virtual Mastercard",
       "type": "upgrade",
-      "countries": ["US", "PR", "MX", "CR", "EC", "SV", "GT", "HN", "JM", "PE"],
+      "countries": ["US", "CA", "MX", "AN", "EC", "SV", "GT", "HN", "JM", "PE", "TT", "CR"],
       "skus": [
         { "sku": "11065", "model": "IntelliFlo3® VSF 1.5" },
         { "sku": "11066", "model": "IntelliFlo3® VSF 1.5 con relay board" },
@@ -183,7 +200,7 @@
       "submissionDeadlineDays": 60,
       "paymentMethod": "Tarjeta virtual Mastercard",
       "type": "upgrade",
-      "countries": ["US", "PR", "MX", "CR", "EC", "SV", "GT", "HN", "JM", "PE"],
+      "countries": ["US", "CA", "MX", "AN", "EC", "SV", "GT", "HN", "JM", "PE", "TT", "CR"],
       "skus": [
         { "sku": "13065", "model": "IntelliPro3® VSF 1.5" },
         { "sku": "13066", "model": "IntelliPro3® VSF 1.5 con relay board" },
@@ -195,6 +212,59 @@
         { "sku": "13078", "model": "IntelliPro3® VSF 3.0 con pantalla táctil y relay board" }
       ],
       "termsUrl": "https://www.pentair.com/latrebate"
+    },
+    {
+      "id": "lighting-intellivibe",
+      "category": "lighting",
+      "name": "IntelliVibe® Nano/Micro/Mezzo",
+      "description": "Luces LED de color y blancas para piscina",
+      "rebateAmount": 55,
+      "currency": "USD",
+      "startDate": "2025-12-08",
+      "endDate": "2026-05-31",
+      "submissionDeadlineDays": 60,
+      "paymentMethod": "Tarjeta virtual Mastercard",
+      "type": "bounty",
+      "competitorBrands": ["MicroBrite", "GloBrite", "Hayward", "Jandy"],
+      "countries": ["US", "CA"],
+      "skus": [
+        { "sku": "NANO-50", "model": "IntelliVibe Nano 50'" },
+        { "sku": "NANO-100", "model": "IntelliVibe Nano 100'" },
+        { "sku": "NANO-150", "model": "IntelliVibe Nano 150'" },
+        { "sku": "MICRO-50", "model": "IntelliVibe Micro 50'" },
+        { "sku": "MICRO-100", "model": "IntelliVibe Micro 100'" },
+        { "sku": "MICRO-150", "model": "IntelliVibe Micro 150'" },
+        { "sku": "MEZZO-50", "model": "IntelliVibe Mezzo 50'" },
+        { "sku": "MEZZO-100", "model": "IntelliVibe Mezzo 100'" },
+        { "sku": "MEZZO-150", "model": "IntelliVibe Mezzo 150'" },
+        { "sku": "CONTROLLER", "model": "Controller IntelliVibe" }
+      ],
+      "termsUrl": "https://www.pentair.com/hotdeals"
+    },
+    {
+      "id": "chlorinators-intellichlor",
+      "category": "chlorinators",
+      "name": "IntelliChlor® Plus / LT",
+      "description": "Generadores de cloro salino de alta eficiencia",
+      "rebateAmount": 100,
+      "currency": "USD",
+      "startDate": "2025-12-08",
+      "endDate": "2026-05-31",
+      "submissionDeadlineDays": 60,
+      "paymentMethod": "Tarjeta virtual Mastercard",
+      "type": "bounty",
+      "competitorBrands": ["Hayward", "Jandy", "Zodiac", "CircuPool"],
+      "countries": ["US"],
+      "skus": [
+        { "sku": "PLUS60", "model": "IntelliChlor Plus60 - 60K Cell" },
+        { "sku": "PLUS40", "model": "IntelliChlor Plus40 - 40K Cell" },
+        { "sku": "PLUS30", "model": "IntelliChlor Plus30 - 30K Cell" },
+        { "sku": "LT25", "model": "IntelliChlor LT25 - 25K Cell" },
+        { "sku": "LT15", "model": "IntelliChlor LT15 - 15K Cell" },
+        { "sku": "PLUS30-PC", "model": "IntelliChlor Plus30 + Power Center" },
+        { "sku": "LT25-PC", "model": "IntelliChlor LT25 + Power Center" }
+      ],
+      "termsUrl": "https://www.pentair.com/hotdeals"
     }
   ]
 }

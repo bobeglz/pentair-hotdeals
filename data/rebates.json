@@ -2,15 +2,18 @@
   "lastUpdated": "2026-01-26",
   "countries": [
     { "code": "US", "name": "Estados Unidos", "flag": "🇺🇸" },
-    { "code": "PR", "name": "Puerto Rico", "flag": "🇵🇷" },
+    { "code": "CA", "name": "Canadá", "flag": "🇨🇦" },
     { "code": "MX", "name": "México", "flag": "🇲🇽" },
+    { "code": "PR", "name": "Puerto Rico", "flag": "🇵🇷" },
+    { "code": "AN", "name": "Antillas (Netherlands)", "flag": "🇧🇶" },
     { "code": "CR", "name": "Costa Rica", "flag": "🇨🇷" },
     { "code": "EC", "name": "Ecuador", "flag": "🇪🇨" },
     { "code": "SV", "name": "El Salvador", "flag": "🇸🇻" },
     { "code": "GT", "name": "Guatemala", "flag": "🇬🇹" },
     { "code": "HN", "name": "Honduras", "flag": "🇭🇳" },
     { "code": "JM", "name": "Jamaica", "flag": "🇯🇲" },
-    { "code": "PE", "name": "Perú", "flag": "🇵🇪" }
+    { "code": "PE", "name": "Perú", "flag": "🇵🇪" },
+    { "code": "TT", "name": "Trinidad y Tobago", "flag": "🇹🇹" }
   ],
   "categories": [
     {
@@ -63,7 +66,7 @@
       "paymentMethod": "Tarjeta virtual Mastercard",
       "type": "bounty",
       "competitorBrands": ["Jandy", "Hayward", "Raypak", "Lochinvar", "Laars"],
-      "countries": ["US", "PR", "MX", "CR", "EC", "SV", "GT", "HN", "JM", "PE"],
+      "countries": ["US", "CA", "MX", "AN", "EC", "SV", "GT", "HN", "JM", "PE", "TT", "CR"],
       "skus": [],
       "termsUrl": "https://www.pentair.com/hotdeals"
     },
@@ -80,7 +83,7 @@
       "paymentMethod": "Tarjeta virtual Mastercard",
       "type": "bounty",
       "competitorBrands": ["Jandy", "Hayward", "Raypak", "Lochinvar", "Laars"],
-      "countries": ["US", "PR", "MX", "CR", "EC", "SV", "GT", "HN", "JM", "PE"],
+      "countries": ["US", "CA", "MX", "AN", "EC", "SV", "GT", "HN", "JM", "PE", "TT", "CR"],
       "skus": [],
       "termsUrl": "https://www.pentair.com/hotdeals"
     },
@@ -96,7 +99,7 @@
       "submissionDeadlineDays": 60,
       "paymentMethod": "Tarjeta virtual Mastercard",
       "type": "standard",
-      "countries": ["US", "PR", "MX", "CR", "EC", "SV", "GT", "HN", "JM", "PE"],
+      "countries": ["US", "CA", "MX", "PR", "AN", "EC", "SV", "GT", "HN", "JM", "PE", "TT", "CR"],
       "skus": [
         { "sku": "160340", "model": "Clean & Clear® Plus 320" },
         { "sku": "160301", "model": "Clean & Clear® Plus 420" },
@@ -116,7 +119,7 @@
       "submissionDeadlineDays": 60,
       "paymentMethod": "Tarjeta virtual Mastercard",
       "type": "standard",
-      "countries": ["US", "PR", "MX", "CR", "EC", "SV", "GT", "HN", "JM", "PE"],
+      "countries": ["US", "CA", "MX", "PR", "AN", "EC", "SV", "GT", "HN", "JM", "PE", "TT", "CR"],
       "skus": [
         { "sku": "160448", "model": "FullFloXF™ C620" }
       ],
@@ -134,7 +137,7 @@
       "submissionDeadlineDays": 60,
       "paymentMethod": "Tarjeta virtual Mastercard",
       "type": "standard",
-      "countries": ["US", "PR", "MX", "CR", "EC", "SV", "GT", "HN", "JM", "PE"],
+      "countries": ["US", "CA", "MX", "PR", "AN", "EC", "SV", "GT", "HN", "JM", "PE", "TT", "CR"],
       "skus": [
         { "sku": "140264", "model": "Tritón® II TR60" }
       ],
@@ -152,7 +155,7 @@
       "submissionDeadlineDays": 60,
       "paymentMethod": "Tarjeta virtual Mastercard",
       "type": "standard",
-      "countries": ["US", "PR", "MX", "CR", "EC", "SV", "GT", "HN", "JM", "PE"],
+      "countries": ["US", "CA", "MX", "PR", "AN", "EC", "SV", "GT", "HN", "JM", "PE", "TT", "CR"],
       "skus": [
         { "sku": "160354", "model": "Clean & Clear® RP 100" },
         { "sku": "160355", "model": "Clean & Clear® RP 150" },
@@ -172,7 +175,7 @@
       "submissionDeadlineDays": 60,
       "paymentMethod": "Tarjeta virtual Mastercard",
       "type": "upgrade",
-      "countries": ["US", "PR", "MX", "CR", "EC", "SV", "GT", "HN", "JM", "PE"],
+      "countries": ["US", "CA", "MX", "AN", "EC", "SV", "GT", "HN", "JM", "PE", "TT", "CR"],
       "skus": [
         { "sku": "11065", "model": "IntelliFlo3® VSF 1.5" },
         { "sku": "11066", "model": "IntelliFlo3® VSF 1.5 con relay board" },
@@ -197,7 +200,7 @@
       "submissionDeadlineDays": 60,
       "paymentMethod": "Tarjeta virtual Mastercard",
       "type": "upgrade",
-      "countries": ["US", "PR", "MX", "CR", "EC", "SV", "GT", "HN", "JM", "PE"],
+      "countries": ["US", "CA", "MX", "AN", "EC", "SV", "GT", "HN", "JM", "PE", "TT", "CR"],
       "skus": [
         { "sku": "13065", "model": "IntelliPro3® VSF 1.5" },
         { "sku": "13066", "model": "IntelliPro3® VSF 1.5 con relay board" },
@@ -223,7 +226,7 @@
       "paymentMethod": "Tarjeta virtual Mastercard",
       "type": "bounty",
       "competitorBrands": ["MicroBrite", "GloBrite", "Hayward", "Jandy"],
-      "countries": ["US", "PR", "MX", "CR", "EC", "SV", "GT", "HN", "JM", "PE"],
+      "countries": ["US", "CA"],
       "skus": [
         { "sku": "NANO-50", "model": "IntelliVibe Nano 50'" },
         { "sku": "NANO-100", "model": "IntelliVibe Nano 100'" },
@@ -251,7 +254,7 @@
       "paymentMethod": "Tarjeta virtual Mastercard",
       "type": "bounty",
       "competitorBrands": ["Hayward", "Jandy", "Zodiac", "CircuPool"],
-      "countries": ["US", "PR", "MX", "CR", "EC", "SV", "GT", "HN", "JM", "PE"],
+      "countries": ["US"],
       "skus": [
         { "sku": "PLUS60", "model": "IntelliChlor Plus60 - 60K Cell" },
         { "sku": "PLUS40", "model": "IntelliChlor Plus40 - 40K Cell" },

@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -15,20 +14,25 @@ import { trackEvent } from "@/lib/analytics";
 interface ShareMenuProps {
   rebate: Rebate;
   country: Country;
-  onGeneratePDF?: () => void;
 }
 
-export function ShareMenu({ rebate, country, onGeneratePDF }: ShareMenuProps) {
+export function ShareMenu({ rebate, country }: ShareMenuProps) {
   const [copied, setCopied] = useState(false);
 
   // Build shareable URL with query params
   const getShareableUrl = () => {
-    const baseUrl = typeof window !== "undefined" ? window.location.origin : "";
+    const baseUrl = typeof window !== "undefined" ? window.location.origin : "https://pentairlatam.com";
     const params = new URLSearchParams({
       producto: rebate.id,
       pais: country.code,
     });
     return `${baseUrl}?${params.toString()}`;
+  };
+
+  // Get terms URL (internal)
+  const getTermsUrl = () => {
+    const baseUrl = typeof window !== "undefined" ? window.location.origin : "https://pentairlatam.com";
+    return `${baseUrl}/terminos/${rebate.id}`;
   };
 
   // Format date for messages
@@ -44,13 +48,13 @@ export function ShareMenu({ rebate, country, onGeneratePDF }: ShareMenuProps) {
   const getWhatsAppMessage = () => {
     const message = `🔥 *Hot Deal Pentair - ${rebate.name}*
 
-💰 Rebate: $${rebate.rebateAmount} ${rebate.currency} por unidad instalada
+💰 Rebate: *$${rebate.rebateAmount} ${rebate.currency}* por unidad instalada
 
-📅 Vigencia: hasta el ${formatDate(rebate.endDate)}
+📅 Válido hasta: ${formatDate(rebate.endDate)}
 
-📋 Términos y condiciones: ${rebate.termsUrl}
+🔗 Ver detalles: ${getShareableUrl()}
 
-🔗 Ver oferta: ${getShareableUrl()}`;
+📋 Términos: ${getTermsUrl()}`;
     return encodeURIComponent(message);
   };
 
@@ -66,11 +70,13 @@ Te comparto este Hot Deal de Pentair:
 
 Producto: ${rebate.name}
 Rebate: $${rebate.rebateAmount} ${rebate.currency} por unidad instalada
-Vigencia: hasta el ${formatDate(rebate.endDate)}
+Válido hasta: ${formatDate(rebate.endDate)}
 
-Términos y condiciones: ${rebate.termsUrl}
+Ver detalles de la oferta:
+${getShareableUrl()}
 
-Ver oferta completa: ${getShareableUrl()}
+Términos y condiciones:
+${getTermsUrl()}
 
 ¡Saludos!`;
     return encodeURIComponent(body);
@@ -111,41 +117,26 @@ Ver oferta completa: ${getShareableUrl()}
     }
   };
 
-  // Download PDF
-  const handleDownloadPDF = () => {
-    if (onGeneratePDF) {
-      onGeneratePDF();
-    } else {
-      // Placeholder - show alert if PDF generator not connected
-      alert("Generador de PDF próximamente disponible");
-    }
-  };
-
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" className="text-pentair-600 border-pentair-600">
-          📤 Compartir
-        </Button>
+        <button className="w-full border border-[#00A651] text-[#00A651] text-xs font-semibold py-2.5 px-3 rounded-lg text-center active:bg-[#00A651]/10">
+          📤 Enviar
+        </button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="center" className="w-48">
+      <DropdownMenuContent align="center" className="w-52">
         <DropdownMenuItem onClick={handleWhatsApp} className="cursor-pointer">
           <span className="text-lg mr-2">💬</span>
-          WhatsApp
+          Enviar por WhatsApp
         </DropdownMenuItem>
         <DropdownMenuItem onClick={handleEmail} className="cursor-pointer">
           <span className="text-lg mr-2">📧</span>
-          Email
+          Enviar por Email
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem onClick={handleCopyLink} className="cursor-pointer">
           <span className="text-lg mr-2">{copied ? "✅" : "🔗"}</span>
-          {copied ? "¡Copiado!" : "Copiar link"}
-        </DropdownMenuItem>
-        <DropdownMenuSeparator />
-        <DropdownMenuItem onClick={handleDownloadPDF} className="cursor-pointer">
-          <span className="text-lg mr-2">📥</span>
-          Descargar PDF
+          {copied ? "¡Link copiado!" : "Copiar link"}
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

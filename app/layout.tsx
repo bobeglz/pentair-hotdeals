@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { OfflineBanner } from "@/components/OfflineBanner";
 import { ServiceWorkerRegistration } from "@/components/ServiceWorkerRegistration";
+import { Providers } from "@/components/Providers";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -57,9 +58,11 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/icon-192.png" />
       </head>
       <body className={`${inter.variable} font-sans`}>
-        <ServiceWorkerRegistration />
-        <OfflineBanner />
-        {children}
+        <Providers>
+          <ServiceWorkerRegistration />
+          <OfflineBanner />
+          {children}
+        </Providers>
       </body>
     </html>
   );
