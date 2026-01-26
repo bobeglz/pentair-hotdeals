@@ -1,10 +1,18 @@
 "use client";
 
+import { useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import rebatesData from "@/data/rebates.json";
 import { RebatesData } from "@/lib/types";
+
+// Dynamic import to avoid SSR issues with react-pdf
+const PdfViewer = dynamic(
+  () => import("@/components/PdfViewer").then((mod) => mod.PdfViewer),
+  { ssr: false }
+);
 
 // Mapping rebate ID to terms PDF
 const termsPdfMap: Record<string, string> = {
@@ -24,6 +32,7 @@ export default function TerminosPage() {
   const params = useParams();
   const router = useRouter();
   const id = params.id as string;
+  const [showPdf, setShowPdf] = useState(false);
   
   const data = rebatesData as RebatesData;
   const rebate = data.rebates.find((r) => r.id === id);
@@ -98,14 +107,12 @@ export default function TerminosPage() {
             Términos y condiciones oficiales de esta promoción
           </p>
           
-          <a
-            href={pdfUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            onClick={() => setShowPdf(true)}
             className="block w-full bg-[#00A651] text-white font-semibold py-3 px-6 rounded-xl text-center mb-3"
           >
             📄 Ver PDF
-          </a>
+          </button>
           
           <a
             href={pdfUrl}
@@ -145,6 +152,11 @@ export default function TerminosPage() {
           </a>
         </div>
       </nav>
+
+      {/* PDF Viewer Modal */}
+      {showPdf && (
+        <PdfViewer url={pdfUrl} onClose={() => setShowPdf(false)} />
+      )}
     </main>
   );
 }
