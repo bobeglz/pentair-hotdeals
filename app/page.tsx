@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import Image from "next/image";
 import { Calculator } from "@/components/calculator";
 import rebatesData from "@/data/rebates.json";
@@ -45,7 +46,9 @@ export default function Home() {
 
       {/* Main Content */}
       <div className="px-4 py-6 -mt-2">
-        <Calculator data={data} />
+        <Suspense fallback={<div className="w-full max-w-md mx-auto p-6 text-center text-muted-foreground">Cargando...</div>}>
+          <Calculator data={data} />
+        </Suspense>
       </div>
 
       {/* Footer */}

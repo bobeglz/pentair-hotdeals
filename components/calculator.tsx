@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -12,7 +13,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { ShareMenu } from "@/components/share-menu";
 import { RebatesData, Rebate } from "@/lib/types";
+import { generateRebatePDF } from "@/components/pdf-generator";
 
 // Product image mapping
 const productImages: Record<string, string> = {
@@ -31,10 +34,32 @@ interface CalculatorProps {
 }
 
 export function Calculator({ data }: CalculatorProps) {
+  const searchParams = useSearchParams();
   const [selectedCountry, setSelectedCountry] = useState<string>("");
   const [selectedProduct, setSelectedProduct] = useState<string>("");
   const [result, setResult] = useState<Rebate | null>(null);
   const [noResult, setNoResult] = useState(false);
+
+  // Load from URL query params on mount
+  useEffect(() => {
+    const producto = searchParams.get("producto");
+    const pais = searchParams.get("pais");
+    
+    if (producto && pais) {
+      // Validate that product and country exist
+      const rebate = data.rebates.find(
+        (r) => r.id === producto && r.countries.includes(pais)
+      );
+      const countryExists = data.countries.some((c) => c.code === pais);
+      
+      if (rebate && countryExists) {
+        setSelectedCountry(pais);
+        setSelectedProduct(producto);
+        setResult(rebate);
+        setNoResult(false);
+      }
+    }
+  }, [searchParams, data]);
 
   // Get all products (rebates)
   const products = useMemo(() => {
@@ -284,9 +309,9 @@ export function Calculator({ data }: CalculatorProps) {
                 📄 Generar PDF
               </Button>
               <div className="grid grid-cols-2 gap-2">
-                <Button variant="outline" className="text-pentair-600 border-pentair-600">
-                  📤 Compartir
-                </Button>
+                {selectedCountryData && (
+                  <ShareMenu rebate={result} country={selectedCountryData} />
+                )}
                 <Button variant="outline" asChild>
                   <a href={result.termsUrl} target="_blank" rel="noopener noreferrer">
                     📋 Ver T&C
