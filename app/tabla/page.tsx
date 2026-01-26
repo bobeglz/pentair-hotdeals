@@ -433,6 +433,216 @@ export default function TablaPage() {
             </section>
           )}
 
+        {/* Sección de Iluminación */}
+        {(selectedCategory === "all" || selectedCategory === "lighting") &&
+          rebatesByCategory.lighting &&
+          rebatesByCategory.lighting.length > 0 && (
+            <section className="bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden">
+              <div className="bg-white px-6 py-4 border-b border-gray-200">
+                <div className="flex items-center gap-3 flex-wrap">
+                  <span className="text-2xl">💡</span>
+                  <h2 className="text-lg font-bold text-[#0D274D]">
+                    Rebate #4: Iluminación IntelliVibe®
+                  </h2>
+                  <span className="bg-[#E8F5E9] text-[#00A651] px-3 py-1 rounded-full text-xs font-semibold">
+                    BOUNTY - Reemplazo de competencia
+                  </span>
+                </div>
+              </div>
+
+              {/* Marcas competidoras */}
+              <div className="bg-[#F5F5F5] px-6 py-3 border-b border-gray-200">
+                <div className="flex items-center gap-2 flex-wrap">
+                  <span className="text-sm font-medium text-[#0D274D]">
+                    Marcas a reemplazar:
+                  </span>
+                  {["MicroBrite", "GloBrite", "Hayward", "Jandy"].map((brand) => (
+                    <span
+                      key={brand}
+                      className="bg-white text-[#0D274D] border border-gray-300 px-2 py-0.5 rounded-full text-xs font-medium"
+                    >
+                      {brand}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="overflow-x-auto">
+                <table className="w-full">
+                  <thead className="bg-[#0D274D]">
+                    <tr>
+                      <th className="text-left px-6 py-3 text-xs font-semibold text-white uppercase tracking-wider">
+                        Producto
+                      </th>
+                      <th className="text-left px-6 py-3 text-xs font-semibold text-white uppercase tracking-wider">
+                        SKU
+                      </th>
+                      <th className="text-left px-6 py-3 text-xs font-semibold text-white uppercase tracking-wider">
+                        Rebate
+                      </th>
+                      <th className="text-left px-6 py-3 text-xs font-semibold text-white uppercase tracking-wider">
+                        Vigencia
+                      </th>
+                      <th className="text-left px-6 py-3 text-xs font-semibold text-white uppercase tracking-wider">
+                        Condiciones
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-gray-100">
+                    {rebatesByCategory.lighting.map((rebate) => (
+                      <tr key={rebate.id} className="hover:bg-[#F5F5F5]">
+                        <td className="px-6 py-4">
+                          <span className="font-semibold text-[#0D274D]">
+                            {rebate.name}
+                          </span>
+                          <p className="text-xs text-gray-500 mt-0.5">
+                            {rebate.description}
+                          </p>
+                        </td>
+                        <td className="px-6 py-4">
+                          <div className="flex flex-wrap gap-1 max-w-xs">
+                            {rebate.skus?.slice(0, 4).map((s) => (
+                              <code
+                                key={s.sku}
+                                className="bg-[#F5F5F5] px-2 py-0.5 rounded text-xs text-[#0D274D]"
+                              >
+                                {s.sku}
+                              </code>
+                            ))}
+                            {rebate.skus && rebate.skus.length > 4 && (
+                              <span className="text-xs text-gray-500">
+                                +{rebate.skus.length - 4} más
+                              </span>
+                            )}
+                          </div>
+                        </td>
+                        <td className="px-6 py-4">
+                          <span className="text-xl font-bold text-[#00A651]">
+                            ${rebate.rebateAmount}
+                          </span>
+                        </td>
+                        <td className="px-6 py-4">
+                          <span className="bg-[#FFD100]/20 text-[#0D274D] px-2 py-1 rounded-full text-xs font-medium whitespace-nowrap">
+                            {formatDate(rebate.startDate)} -{" "}
+                            {formatDate(rebate.endDate)}
+                          </span>
+                        </td>
+                        <td className="px-6 py-4 text-sm text-gray-600">
+                          Reemplazo de luces de competencia
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          )}
+
+        {/* Sección de Cloradores */}
+        {(selectedCategory === "all" || selectedCategory === "chlorinators") &&
+          rebatesByCategory.chlorinators &&
+          rebatesByCategory.chlorinators.length > 0 && (
+            <section className="bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden">
+              <div className="bg-white px-6 py-4 border-b border-gray-200">
+                <div className="flex items-center gap-3 flex-wrap">
+                  <span className="text-2xl">⚡</span>
+                  <h2 className="text-lg font-bold text-[#0D274D]">
+                    Rebate #5: Cloradores IntelliChlor®
+                  </h2>
+                  <span className="bg-[#E8F5E9] text-[#00A651] px-3 py-1 rounded-full text-xs font-semibold">
+                    BOUNTY - Reemplazo de competencia
+                  </span>
+                </div>
+              </div>
+
+              {/* Marcas competidoras */}
+              <div className="bg-[#F5F5F5] px-6 py-3 border-b border-gray-200">
+                <div className="flex items-center gap-2 flex-wrap">
+                  <span className="text-sm font-medium text-[#0D274D]">
+                    Marcas a reemplazar:
+                  </span>
+                  {["Hayward", "Jandy", "Zodiac", "CircuPool"].map((brand) => (
+                    <span
+                      key={brand}
+                      className="bg-white text-[#0D274D] border border-gray-300 px-2 py-0.5 rounded-full text-xs font-medium"
+                    >
+                      {brand}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="overflow-x-auto">
+                <table className="w-full">
+                  <thead className="bg-[#0D274D]">
+                    <tr>
+                      <th className="text-left px-6 py-3 text-xs font-semibold text-white uppercase tracking-wider">
+                        Producto
+                      </th>
+                      <th className="text-left px-6 py-3 text-xs font-semibold text-white uppercase tracking-wider">
+                        SKU
+                      </th>
+                      <th className="text-left px-6 py-3 text-xs font-semibold text-white uppercase tracking-wider">
+                        Rebate
+                      </th>
+                      <th className="text-left px-6 py-3 text-xs font-semibold text-white uppercase tracking-wider">
+                        Vigencia
+                      </th>
+                      <th className="text-left px-6 py-3 text-xs font-semibold text-white uppercase tracking-wider">
+                        Condiciones
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-gray-100">
+                    {rebatesByCategory.chlorinators.map((rebate) => (
+                      <tr key={rebate.id} className="hover:bg-[#F5F5F5]">
+                        <td className="px-6 py-4">
+                          <span className="font-semibold text-[#0D274D]">
+                            {rebate.name}
+                          </span>
+                          <p className="text-xs text-gray-500 mt-0.5">
+                            {rebate.description}
+                          </p>
+                        </td>
+                        <td className="px-6 py-4">
+                          <div className="flex flex-wrap gap-1 max-w-xs">
+                            {rebate.skus?.slice(0, 4).map((s) => (
+                              <code
+                                key={s.sku}
+                                className="bg-[#F5F5F5] px-2 py-0.5 rounded text-xs text-[#0D274D]"
+                              >
+                                {s.sku}
+                              </code>
+                            ))}
+                            {rebate.skus && rebate.skus.length > 4 && (
+                              <span className="text-xs text-gray-500">
+                                +{rebate.skus.length - 4} más
+                              </span>
+                            )}
+                          </div>
+                        </td>
+                        <td className="px-6 py-4">
+                          <span className="text-xl font-bold text-[#00A651]">
+                            ${rebate.rebateAmount}
+                          </span>
+                        </td>
+                        <td className="px-6 py-4">
+                          <span className="bg-[#FFD100]/20 text-[#0D274D] px-2 py-1 rounded-full text-xs font-medium whitespace-nowrap">
+                            {formatDate(rebate.startDate)} -{" "}
+                            {formatDate(rebate.endDate)}
+                          </span>
+                        </td>
+                        <td className="px-6 py-4 text-sm text-gray-600">
+                          Reemplazo de cloradores de competencia
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          )}
+
         {/* Nota explicativa */}
         <section className="bg-[#E8F5E9] border-l-4 border-[#00A651] rounded-r-lg p-6">
           <h3 className="font-bold text-[#0D274D] flex items-center gap-2 mb-3">

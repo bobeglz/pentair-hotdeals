@@ -33,6 +33,20 @@
       "icon": "💧",
       "type": "upgrade",
       "description": "Rebate por upgrade a bombas de velocidad variable"
+    },
+    {
+      "id": "lighting",
+      "name": "Iluminación",
+      "icon": "💡",
+      "type": "bounty",
+      "description": "Rebate por reemplazo de luces Pentair o competencia"
+    },
+    {
+      "id": "chlorinators",
+      "name": "Cloradores",
+      "icon": "⚡",
+      "type": "bounty",
+      "description": "Rebate por reemplazo de generadores de cloro de competencia"
     }
   ],
   "rebates": [
@@ -195,6 +209,59 @@
         { "sku": "13078", "model": "IntelliPro3® VSF 3.0 con pantalla táctil y relay board" }
       ],
       "termsUrl": "https://www.pentair.com/latrebate"
+    },
+    {
+      "id": "lighting-intellivibe",
+      "category": "lighting",
+      "name": "IntelliVibe® Nano/Micro/Mezzo",
+      "description": "Luces LED de color y blancas para piscina",
+      "rebateAmount": 55,
+      "currency": "USD",
+      "startDate": "2025-12-08",
+      "endDate": "2026-05-31",
+      "submissionDeadlineDays": 60,
+      "paymentMethod": "Tarjeta virtual Mastercard",
+      "type": "bounty",
+      "competitorBrands": ["MicroBrite", "GloBrite", "Hayward", "Jandy"],
+      "countries": ["US", "PR", "MX", "CR", "EC", "SV", "GT", "HN", "JM", "PE"],
+      "skus": [
+        { "sku": "NANO-50", "model": "IntelliVibe Nano 50'" },
+        { "sku": "NANO-100", "model": "IntelliVibe Nano 100'" },
+        { "sku": "NANO-150", "model": "IntelliVibe Nano 150'" },
+        { "sku": "MICRO-50", "model": "IntelliVibe Micro 50'" },
+        { "sku": "MICRO-100", "model": "IntelliVibe Micro 100'" },
+        { "sku": "MICRO-150", "model": "IntelliVibe Micro 150'" },
+        { "sku": "MEZZO-50", "model": "IntelliVibe Mezzo 50'" },
+        { "sku": "MEZZO-100", "model": "IntelliVibe Mezzo 100'" },
+        { "sku": "MEZZO-150", "model": "IntelliVibe Mezzo 150'" },
+        { "sku": "CONTROLLER", "model": "Controller IntelliVibe" }
+      ],
+      "termsUrl": "https://www.pentair.com/hotdeals"
+    },
+    {
+      "id": "chlorinators-intellichlor",
+      "category": "chlorinators",
+      "name": "IntelliChlor® Plus / LT",
+      "description": "Generadores de cloro salino de alta eficiencia",
+      "rebateAmount": 100,
+      "currency": "USD",
+      "startDate": "2025-12-08",
+      "endDate": "2026-05-31",
+      "submissionDeadlineDays": 60,
+      "paymentMethod": "Tarjeta virtual Mastercard",
+      "type": "bounty",
+      "competitorBrands": ["Hayward", "Jandy", "Zodiac", "CircuPool"],
+      "countries": ["US", "PR", "MX", "CR", "EC", "SV", "GT", "HN", "JM", "PE"],
+      "skus": [
+        { "sku": "PLUS60", "model": "IntelliChlor Plus60 - 60K Cell" },
+        { "sku": "PLUS40", "model": "IntelliChlor Plus40 - 40K Cell" },
+        { "sku": "PLUS30", "model": "IntelliChlor Plus30 - 30K Cell" },
+        { "sku": "LT25", "model": "IntelliChlor LT25 - 25K Cell" },
+        { "sku": "LT15", "model": "IntelliChlor LT15 - 15K Cell" },
+        { "sku": "PLUS30-PC", "model": "IntelliChlor Plus30 + Power Center" },
+        { "sku": "LT25-PC", "model": "IntelliChlor LT25 + Power Center" }
+      ],
+      "termsUrl": "https://www.pentair.com/hotdeals"
     }
   ]
 }

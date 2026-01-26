@@ -28,6 +28,8 @@ const productImages: Record<string, string> = {
   "filters-rp": "/products/CNCPlus 320.png",
   "pumps-intelliflo3": "/products/3.0 HP - IntelliFlo3 VSF Product Image - Left Side.png",
   "pumps-intellipro3": "/products/2022-Pentair-IntelliPro3-LeftAngle.png",
+  "lighting-intellivibe": "/products/intellivibe.png",
+  "chlorinators-intellichlor": "/logos/pentair-logo.png",
 };
 
 interface CalculatorProps {
