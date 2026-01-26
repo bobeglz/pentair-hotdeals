@@ -46,9 +46,9 @@ export default function TablaPage() {
   const competitorBrands = ["Jandy", "Hayward", "Raypak", "Lochinvar", "Laars"];
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white overflow-x-hidden">
       {/* Header - White Clean */}
-      <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
+      <header className="bg-white border-b border-gray-200">
         <div className="max-w-6xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
@@ -103,7 +103,7 @@ export default function TablaPage() {
       </div>
 
       {/* Filtros */}
-      <section className="bg-[#F5F5F5] border-b border-gray-200 sticky top-[72px] z-40">
+      <section className="bg-[#F5F5F5] border-b border-gray-200">
         <div className="max-w-6xl mx-auto px-4 py-4">
           <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
             {/* Filtro por país */}
@@ -198,7 +198,7 @@ export default function TablaPage() {
 
               <div className="overflow-x-auto">
                 <table className="w-full">
-                  <thead className="bg-[#0D274D] sticky top-[140px]">
+                  <thead className="bg-[#0D274D]">
                     <tr>
                       <th className="text-left px-6 py-3 text-xs font-semibold text-white uppercase tracking-wider">
                         Producto
