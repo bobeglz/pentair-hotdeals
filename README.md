@@ -53,9 +53,8 @@ PWA para el equipo de ventas de Pentair LATAM para consultar y compartir informa
 | Código | País | Productos |
 |--------|------|-----------|
 | US | Estados Unidos | Todos |
-| CA | Canadá | Todos |
-| MX | México | Todos excepto IntelliChlor (solo US) e IntelliVibe (US, CA) |
-| PR | Puerto Rico | Filtros |
+| MX | México | Todos excepto IntelliChlor e IntelliVibe (solo US) |
+| PR | Puerto Rico | Todos excepto IntelliChlor e IntelliVibe (solo US) |
 | AN | Antillas | Calentadores, Bombas, Filtros |
 | CR | Costa Rica | Calentadores, Bombas, Filtros |
 | EC | Ecuador | Calentadores, Bombas, Filtros |
@@ -68,7 +67,7 @@ PWA para el equipo de ventas de Pentair LATAM para consultar y compartir informa
 
 **Restricciones por producto:**
 - **IntelliChlor**: Solo Estados Unidos
-- **IntelliVibe**: Solo Estados Unidos y Canadá
+- **IntelliVibe**: Solo Estados Unidos
 
 ## 💰 Rebates Disponibles (Q1 2026)
 
