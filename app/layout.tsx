@@ -23,18 +23,18 @@ export const metadata: Metadata = {
     apple: "/icon-192.png",
   },
   openGraph: {
-    title: "Pentair Hot Deals LATAM",
-    description: "Consulta rebates de productos Pentair",
-    images: ["/logos/pentair-logo.png"],
+    title: "🔥 Pentair Hot Deals | Rebates hasta $400 USD",
+    description: "Calculadora de rebates para dealers LATAM. Bombas, filtros, calentadores y más productos Pentair Pool.",
+    images: ["/og-image.png"],
     type: "website",
     locale: "es_MX",
     siteName: "Pentair Hot Deals",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pentair Hot Deals LATAM",
-    description: "Consulta rebates de productos Pentair",
-    images: ["/logos/pentair-logo.png"],
+    title: "🔥 Pentair Hot Deals | Rebates hasta $400 USD",
+    description: "Calculadora de rebates para dealers LATAM. Bombas, filtros, calentadores y más productos Pentair Pool.",
+    images: ["/og-image.png"],
   },
 };
 
