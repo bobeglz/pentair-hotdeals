@@ -10,6 +10,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Rebate, Country } from "@/lib/types";
+import { trackEvent } from "@/lib/analytics";
 
 interface ShareMenuProps {
   rebate: Rebate;
@@ -77,12 +78,20 @@ Ver oferta completa: ${getShareableUrl()}
 
   // Share via WhatsApp
   const handleWhatsApp = () => {
+    trackEvent("share_whatsapp", {
+      product: rebate.name,
+      country: country.code,
+    });
     const url = `https://wa.me/?text=${getWhatsAppMessage()}`;
     window.open(url, "_blank", "noopener,noreferrer");
   };
 
   // Share via Email
   const handleEmail = () => {
+    trackEvent("share_email", {
+      product: rebate.name,
+      country: country.code,
+    });
     const mailtoUrl = `mailto:?subject=${getEmailSubject()}&body=${getEmailBody()}`;
     window.open(mailtoUrl, "_self");
   };
@@ -91,6 +100,10 @@ Ver oferta completa: ${getShareableUrl()}
   const handleCopyLink = async () => {
     try {
       await navigator.clipboard.writeText(getShareableUrl());
+      trackEvent("share_copy_link", {
+        product: rebate.name,
+        country: country.code,
+      });
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {

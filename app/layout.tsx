@@ -32,6 +32,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
+      <head>
+        <script
+          defer
+          data-domain="pentairlatam.com"
+          src="https://plausible.io/js/script.js"
+        />
+      </head>
       <body className={`${inter.variable} font-sans`}>
         {children}
       </body>

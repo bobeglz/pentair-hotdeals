@@ -16,6 +16,7 @@ import {
 import { ShareMenu } from "@/components/share-menu";
 import { RebatesData, Rebate } from "@/lib/types";
 import { generateRebatePDF } from "@/components/pdf-generator";
+import { trackEvent } from "@/lib/analytics";
 
 // Product image mapping
 const productImages: Record<string, string> = {
@@ -85,6 +86,14 @@ export function Calculator({ data }: CalculatorProps) {
     const rebate = data.rebates.find(
       (r) => r.id === selectedProduct && r.countries.includes(selectedCountry)
     );
+    
+    // Track search event
+    const productData = products.find((p) => p.id === selectedProduct);
+    trackEvent("search", {
+      product: productData?.name || selectedProduct,
+      country: selectedCountry,
+      found: rebate ? "yes" : "no",
+    });
     
     if (rebate) {
       setResult(rebate);
@@ -309,6 +318,10 @@ export function Calculator({ data }: CalculatorProps) {
                 className="w-full bg-pentair-600 hover:bg-pentair-700"
                 onClick={() => {
                   if (result && selectedCountryData) {
+                    trackEvent("pdf_generated", {
+                      product: result.name,
+                      country: selectedCountryData.code,
+                    });
                     generateRebatePDF({ rebate: result, country: selectedCountryData });
                   }
                 }}
