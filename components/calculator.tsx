@@ -305,7 +305,14 @@ export function Calculator({ data }: CalculatorProps) {
 
             {/* Actions */}
             <div className="flex flex-col gap-2 pt-2">
-              <Button className="w-full bg-pentair-600 hover:bg-pentair-700">
+              <Button 
+                className="w-full bg-pentair-600 hover:bg-pentair-700"
+                onClick={() => {
+                  if (result && selectedCountryData) {
+                    generateRebatePDF({ rebate: result, country: selectedCountryData });
+                  }
+                }}
+              >
                 📄 Generar PDF
               </Button>
               <div className="grid grid-cols-2 gap-2">

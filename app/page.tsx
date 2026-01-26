@@ -1,8 +1,27 @@
 import { Suspense } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Calculator } from "@/components/calculator";
 import rebatesData from "@/data/rebates.json";
 import { RebatesData } from "@/lib/types";
+
+function CalculatorSkeleton() {
+  return (
+    <div className="w-full max-w-md mx-auto space-y-6">
+      <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+        <div className="pentair-gradient p-6">
+          <div className="h-8 bg-white/20 rounded w-1/2 animate-pulse" />
+          <div className="h-4 bg-white/20 rounded w-2/3 mt-2 animate-pulse" />
+        </div>
+        <div className="p-6 space-y-4">
+          <div className="h-12 bg-gray-100 rounded animate-pulse" />
+          <div className="h-12 bg-gray-100 rounded animate-pulse" />
+          <div className="h-12 bg-pentair-100 rounded animate-pulse" />
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function Home() {
   const data = rebatesData as RebatesData;
@@ -44,9 +63,24 @@ export default function Home() {
         </div>
       </header>
 
+      {/* Navigation */}
+      <nav className="bg-white border-b shadow-sm">
+        <div className="max-w-md mx-auto px-4 py-2 flex justify-center gap-4">
+          <span className="text-sm font-medium text-pentair-600 border-b-2 border-pentair-600 pb-1">
+            🔍 Calculadora
+          </span>
+          <Link
+            href="/tabla"
+            className="text-sm text-gray-500 hover:text-pentair-600 pb-1"
+          >
+            📊 Ver Tabla Completa
+          </Link>
+        </div>
+      </nav>
+
       {/* Main Content */}
       <div className="px-4 py-6 -mt-2">
-        <Suspense fallback={<div className="w-full max-w-md mx-auto p-6 text-center text-muted-foreground">Cargando...</div>}>
+        <Suspense fallback={<CalculatorSkeleton />}>
           <Calculator data={data} />
         </Suspense>
       </div>
