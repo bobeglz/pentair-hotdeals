@@ -132,19 +132,19 @@ export function Calculator({ data }: CalculatorProps) {
   return (
     <div className="w-full max-w-md mx-auto space-y-6">
       {/* Calculator Card */}
-      <Card className="border-0 shadow-lg">
-        <CardHeader className="pentair-gradient text-white rounded-t-xl pb-6">
-          <CardTitle className="text-2xl font-bold flex items-center gap-2">
-            🔥 Hot Deals
+      <Card className="border border-gray-200 shadow-md bg-white">
+        <CardHeader className="bg-white border-b border-gray-100 pb-6">
+          <CardTitle className="text-2xl font-bold flex items-center gap-2 text-[#0D274D]">
+            Calculadora de Rebates
           </CardTitle>
-          <CardDescription className="text-pentair-100">
+          <CardDescription className="text-gray-500">
             Encuentra rebates disponibles para tu región
           </CardDescription>
         </CardHeader>
-        <CardContent className="p-6 space-y-4">
+        <CardContent className="p-6 space-y-5">
           {/* Country Select */}
           <div className="space-y-2">
-            <label className="text-sm font-medium text-muted-foreground">
+            <label className="text-sm font-semibold text-[#0D274D]">
               ¿En qué país?
             </label>
             <Select value={selectedCountry} onValueChange={(v) => {
@@ -152,7 +152,7 @@ export function Calculator({ data }: CalculatorProps) {
               setResult(null);
               setNoResult(false);
             }}>
-              <SelectTrigger className="w-full h-12 text-base">
+              <SelectTrigger className="w-full h-12 text-base border-gray-300 focus:border-[#00A651] focus:ring-[#00A651]">
                 <SelectValue placeholder="Seleccionar país" />
               </SelectTrigger>
               <SelectContent>
@@ -170,7 +170,7 @@ export function Calculator({ data }: CalculatorProps) {
 
           {/* Product Select */}
           <div className="space-y-2">
-            <label className="text-sm font-medium text-muted-foreground">
+            <label className="text-sm font-semibold text-[#0D274D]">
               ¿Qué producto buscas?
             </label>
             <Select value={selectedProduct} onValueChange={(v) => {
@@ -178,7 +178,7 @@ export function Calculator({ data }: CalculatorProps) {
               setResult(null);
               setNoResult(false);
             }}>
-              <SelectTrigger className="w-full h-12 text-base">
+              <SelectTrigger className="w-full h-12 text-base border-gray-300 focus:border-[#00A651] focus:ring-[#00A651]">
                 <SelectValue placeholder="Seleccionar producto" />
               </SelectTrigger>
               <SelectContent>
@@ -194,30 +194,30 @@ export function Calculator({ data }: CalculatorProps) {
             </Select>
           </div>
 
-          {/* Search Button */}
+          {/* Search Button - GREEN */}
           <Button 
             onClick={handleSearch}
             disabled={!selectedCountry || !selectedProduct}
-            className="w-full h-12 text-base font-semibold bg-pentair-600 hover:bg-pentair-700"
+            className="w-full h-12 text-base font-semibold bg-[#00A651] hover:bg-[#00953F] text-white"
           >
-            🔍 Buscar Rebate
+            Buscar Rebate
           </Button>
         </CardContent>
       </Card>
 
       {/* Result Card */}
       {result && (
-        <Card className="border-0 shadow-lg animate-in fade-in slide-in-from-bottom-4 duration-300">
+        <Card className="border border-gray-200 shadow-md bg-white animate-in fade-in slide-in-from-bottom-4 duration-300">
           <CardContent className="p-6 space-y-4">
             {/* Success Header */}
-            <div className="flex items-center gap-2 text-success">
+            <div className="flex items-center gap-2 text-[#00A651]">
               <span className="text-2xl">✅</span>
               <span className="text-lg font-bold">¡REBATE DISPONIBLE!</span>
             </div>
 
             {/* Product Image */}
             {productImages[result.id] && (
-              <div className="flex justify-center">
+              <div className="flex justify-center py-2">
                 <Image
                   src={productImages[result.id]}
                   alt={result.name}
@@ -233,17 +233,17 @@ export function Calculator({ data }: CalculatorProps) {
             <div className="space-y-1">
               <div className="flex items-center gap-2">
                 <span className="text-xl">{category?.icon}</span>
-                <h3 className="text-xl font-bold text-foreground">{result.name}</h3>
+                <h3 className="text-xl font-bold text-[#0D274D]">{result.name}</h3>
               </div>
-              <p className="text-muted-foreground text-sm">{result.description}</p>
+              <p className="text-gray-500 text-sm">{result.description}</p>
             </div>
 
-            {/* Amount */}
-            <div className="bg-pentair-50 rounded-xl p-4 text-center">
-              <div className="text-4xl font-bold text-pentair-700">
+            {/* Amount - GREEN Badge */}
+            <div className="bg-[#E8F5E9] rounded-lg p-4 text-center">
+              <div className="text-4xl font-bold text-[#00A651]">
                 ${result.rebateAmount} <span className="text-lg">{result.currency}</span>
               </div>
-              <div className="text-sm text-muted-foreground mt-1">
+              <div className="text-sm text-gray-600 mt-1">
                 por unidad instalada
               </div>
             </div>
@@ -253,17 +253,17 @@ export function Calculator({ data }: CalculatorProps) {
               {/* Country */}
               <div className="flex items-center gap-2 text-sm">
                 <span>{selectedCountryData?.flag}</span>
-                <span className="text-muted-foreground">País:</span>
-                <span className="font-medium">{selectedCountryData?.name}</span>
+                <span className="text-gray-500">País:</span>
+                <span className="font-medium text-[#0D274D]">{selectedCountryData?.name}</span>
               </div>
 
               {/* Validity */}
               <div className="flex items-center gap-2 text-sm">
                 <span>📅</span>
-                <span className="text-muted-foreground">Válido hasta:</span>
-                <span className="font-medium">{formatDate(result.endDate)}</span>
+                <span className="text-gray-500">Válido hasta:</span>
+                <span className="font-medium text-[#0D274D]">{formatDate(result.endDate)}</span>
                 {daysUntilEnd(result.endDate) <= 30 && (
-                  <Badge variant="outline" className="text-warning border-warning text-xs">
+                  <Badge variant="outline" className="text-[#FFD100] border-[#FFD100] bg-[#FFD100]/10 text-xs">
                     ⚠️ {daysUntilEnd(result.endDate)} días
                   </Badge>
                 )}
@@ -272,24 +272,24 @@ export function Calculator({ data }: CalculatorProps) {
               {/* Payment */}
               <div className="flex items-center gap-2 text-sm">
                 <span>💳</span>
-                <span className="text-muted-foreground">Pago:</span>
-                <span className="font-medium">{result.paymentMethod}</span>
+                <span className="text-gray-500">Pago:</span>
+                <span className="font-medium text-[#0D274D]">{result.paymentMethod}</span>
               </div>
 
               {/* Submission Deadline */}
               <div className="flex items-center gap-2 text-sm">
                 <span>⏰</span>
-                <span className="text-muted-foreground">Plazo de envío:</span>
-                <span className="font-medium">{result.submissionDeadlineDays} días después de instalación</span>
+                <span className="text-gray-500">Plazo de envío:</span>
+                <span className="font-medium text-[#0D274D]">{result.submissionDeadlineDays} días después de instalación</span>
               </div>
 
               {/* Type Badge */}
               {result.type === 'bounty' && result.competitorBrands && (
-                <div className="bg-amber-50 border border-amber-200 rounded-lg p-3 mt-2">
-                  <div className="text-sm font-medium text-amber-800 mb-1">
+                <div className="bg-[#FFD100]/10 border border-[#FFD100] rounded-lg p-3 mt-2">
+                  <div className="text-sm font-medium text-[#0D274D] mb-1">
                     🏆 Programa Bounty
                   </div>
-                  <div className="text-xs text-amber-700">
+                  <div className="text-xs text-gray-600">
                     Reemplazo de marcas: {result.competitorBrands.join(", ")}
                   </div>
                 </div>
@@ -298,12 +298,12 @@ export function Calculator({ data }: CalculatorProps) {
               {/* SKUs */}
               {result.skus.length > 0 && (
                 <div className="mt-3">
-                  <div className="text-sm font-medium text-muted-foreground mb-2">
+                  <div className="text-sm font-medium text-gray-500 mb-2">
                     SKUs elegibles:
                   </div>
                   <div className="flex flex-wrap gap-1.5">
                     {result.skus.map((sku) => (
-                      <Badge key={sku.sku} variant="secondary" className="text-xs font-mono">
+                      <Badge key={sku.sku} variant="secondary" className="text-xs font-mono bg-[#F5F5F5] text-[#0D274D]">
                         {sku.sku}
                       </Badge>
                     ))}
@@ -312,10 +312,10 @@ export function Calculator({ data }: CalculatorProps) {
               )}
             </div>
 
-            {/* Actions */}
+            {/* Actions - GREEN buttons */}
             <div className="flex flex-col gap-2 pt-2">
               <Button 
-                className="w-full bg-pentair-600 hover:bg-pentair-700"
+                className="w-full bg-[#00A651] hover:bg-[#00953F] text-white"
                 onClick={() => {
                   if (result && selectedCountryData) {
                     trackEvent("pdf_generated", {
@@ -332,7 +332,7 @@ export function Calculator({ data }: CalculatorProps) {
                 {selectedCountryData && (
                   <ShareMenu rebate={result} country={selectedCountryData} />
                 )}
-                <Button variant="outline" asChild>
+                <Button variant="outline" className="border-[#00A651] text-[#00A651] hover:bg-[#00A651]/10" asChild>
                   <a href={result.termsUrl} target="_blank" rel="noopener noreferrer">
                     📋 Ver T&C
                   </a>
@@ -341,7 +341,7 @@ export function Calculator({ data }: CalculatorProps) {
             </div>
 
             {/* Reset */}
-            <Button variant="ghost" onClick={handleReset} className="w-full text-muted-foreground">
+            <Button variant="ghost" onClick={handleReset} className="w-full text-gray-500 hover:text-[#0D274D]">
               ← Nueva búsqueda
             </Button>
           </CardContent>
@@ -350,16 +350,16 @@ export function Calculator({ data }: CalculatorProps) {
 
       {/* No Result */}
       {noResult && (
-        <Card className="border-0 shadow-lg animate-in fade-in slide-in-from-bottom-4 duration-300">
+        <Card className="border border-gray-200 shadow-md bg-white animate-in fade-in slide-in-from-bottom-4 duration-300">
           <CardContent className="p-6 text-center space-y-4">
             <div className="text-4xl">❌</div>
             <div>
-              <h3 className="text-lg font-bold text-foreground">No disponible</h3>
-              <p className="text-muted-foreground text-sm mt-1">
+              <h3 className="text-lg font-bold text-[#0D274D]">No disponible</h3>
+              <p className="text-gray-500 text-sm mt-1">
                 Este producto no tiene rebate activo en el país seleccionado.
               </p>
             </div>
-            <Button variant="outline" onClick={handleReset} className="w-full">
+            <Button variant="outline" onClick={handleReset} className="w-full border-[#0D274D] text-[#0D274D]">
               ← Nueva búsqueda
             </Button>
           </CardContent>

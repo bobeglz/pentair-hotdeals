@@ -46,15 +46,15 @@ export default function TablaPage() {
   const competitorBrands = ["Jandy", "Hayward", "Raypak", "Lochinvar", "Laars"];
 
   return (
-    <main className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="pentair-gradient text-white sticky top-0 z-50">
+    <main className="min-h-screen bg-white">
+      {/* Header - White Clean */}
+      <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
         <div className="max-w-6xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <Link href="/" className="flex items-center gap-3">
                 <Image
-                  src="/logos/pentair-logo-white.png"
+                  src="/logos/pentair-logo.png"
                   alt="Pentair Logo"
                   width={120}
                   height={40}
@@ -63,17 +63,17 @@ export default function TablaPage() {
                 />
               </Link>
               <div>
-                <h1 className="text-xl font-bold">🔥 Hot Deals Q1 2026</h1>
-                <p className="text-xs text-pentair-100">Tabla de Rebates</p>
+                <h1 className="text-xl font-bold text-[#0D274D]">Hot Deals Q1 2026</h1>
+                <p className="text-xs text-gray-500">Tabla de Rebates</p>
               </div>
             </div>
             <div className="flex items-center gap-4">
-              <span className="bg-gold text-gray-800 px-3 py-1 rounded-full text-xs font-bold">
+              <span className="bg-[#FFD100] text-[#0D274D] px-3 py-1 rounded-full text-xs font-bold">
                 ⏰ Hasta 31 Mayo 2026
               </span>
               <Link
                 href="/"
-                className="text-xs text-pentair-100 hover:text-white underline"
+                className="text-xs text-[#00A651] hover:underline font-medium"
               >
                 ← Calculadora
               </Link>
@@ -82,11 +82,11 @@ export default function TablaPage() {
         </div>
       </header>
 
-      {/* Barra de países participantes */}
-      <section className="bg-pentair-50 border-b border-pentair-200">
-        <div className="max-w-6xl mx-auto px-4 py-3">
-          <div className="flex items-center gap-3 flex-wrap">
-            <span className="font-semibold text-pentair-700 text-sm">
+      {/* Gold Accent Bar */}
+      <div className="bg-[#FFD100] py-2">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="flex items-center gap-3 flex-wrap justify-center">
+            <span className="font-semibold text-[#0D274D] text-sm">
               Países participantes:
             </span>
             {data.countries.map((country) => (
@@ -95,26 +95,26 @@ export default function TablaPage() {
                 className="flex items-center gap-1 text-sm"
               >
                 <span className="text-lg">{country.flag}</span>
-                <span className="text-gray-700">{country.code}</span>
+                <span className="text-[#0D274D] font-medium">{country.code}</span>
               </span>
             ))}
           </div>
         </div>
-      </section>
+      </div>
 
       {/* Filtros */}
-      <section className="bg-white border-b shadow-sm sticky top-[72px] z-40">
+      <section className="bg-[#F5F5F5] border-b border-gray-200 sticky top-[72px] z-40">
         <div className="max-w-6xl mx-auto px-4 py-4">
           <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
             {/* Filtro por país */}
             <div className="flex items-center gap-2">
-              <label className="text-sm font-medium text-gray-700">
+              <label className="text-sm font-medium text-[#0D274D]">
                 Filtrar por país:
               </label>
               <select
                 value={selectedCountry}
                 onChange={(e) => setSelectedCountry(e.target.value)}
-                className="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-pentair-500 focus:border-pentair-500"
+                className="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[#00A651] focus:border-[#00A651]"
               >
                 <option value="all">Todos los países</option>
                 {data.countries.map((country) => (
@@ -127,7 +127,7 @@ export default function TablaPage() {
 
             {/* Filtro por categoría (tabs) */}
             <div className="flex items-center gap-2">
-              <span className="text-sm font-medium text-gray-700">
+              <span className="text-sm font-medium text-[#0D274D]">
                 Categoría:
               </span>
               <div className="flex gap-1">
@@ -135,8 +135,8 @@ export default function TablaPage() {
                   onClick={() => setSelectedCategory("all")}
                   className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
                     selectedCategory === "all"
-                      ? "bg-pentair-600 text-white"
-                      : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                      ? "bg-[#00A651] text-white"
+                      : "bg-white text-[#0D274D] hover:bg-gray-100 border border-gray-200"
                   }`}
                 >
                   Todas
@@ -147,8 +147,8 @@ export default function TablaPage() {
                     onClick={() => setSelectedCategory(cat.id)}
                     className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
                       selectedCategory === cat.id
-                        ? "bg-pentair-600 text-white"
-                        : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                        ? "bg-[#00A651] text-white"
+                        : "bg-white text-[#0D274D] hover:bg-gray-100 border border-gray-200"
                     }`}
                   >
                     {cat.icon} {cat.name}
@@ -166,29 +166,29 @@ export default function TablaPage() {
         {(selectedCategory === "all" || selectedCategory === "heaters") &&
           rebatesByCategory.heaters &&
           rebatesByCategory.heaters.length > 0 && (
-            <section className="bg-white rounded-xl shadow-sm border overflow-hidden">
-              <div className="bg-gradient-to-r from-orange-50 to-orange-100 px-6 py-4 border-b">
+            <section className="bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden">
+              <div className="bg-white px-6 py-4 border-b border-gray-200">
                 <div className="flex items-center gap-3 flex-wrap">
                   <span className="text-2xl">🔥</span>
-                  <h2 className="text-lg font-bold text-gray-800">
+                  <h2 className="text-lg font-bold text-[#0D274D]">
                     Rebate #1: Calentadores
                   </h2>
-                  <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-semibold">
+                  <span className="bg-[#E8F5E9] text-[#00A651] px-3 py-1 rounded-full text-xs font-semibold">
                     BOUNTY - Reemplazo de competencia
                   </span>
                 </div>
               </div>
 
               {/* Marcas competidoras */}
-              <div className="bg-red-50 px-6 py-3 border-b">
+              <div className="bg-[#F5F5F5] px-6 py-3 border-b border-gray-200">
                 <div className="flex items-center gap-2 flex-wrap">
-                  <span className="text-sm font-medium text-gray-700">
+                  <span className="text-sm font-medium text-[#0D274D]">
                     Marcas a reemplazar:
                   </span>
                   {competitorBrands.map((brand) => (
                     <span
                       key={brand}
-                      className="bg-red-100 text-red-700 px-2 py-0.5 rounded-full text-xs font-medium"
+                      className="bg-white text-[#0D274D] border border-gray-300 px-2 py-0.5 rounded-full text-xs font-medium"
                     >
                       {brand}
                     </span>
@@ -198,30 +198,30 @@ export default function TablaPage() {
 
               <div className="overflow-x-auto">
                 <table className="w-full">
-                  <thead className="bg-gray-50 sticky top-[140px]">
+                  <thead className="bg-[#0D274D] sticky top-[140px]">
                     <tr>
-                      <th className="text-left px-6 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider border-b-2 border-pentair-500">
+                      <th className="text-left px-6 py-3 text-xs font-semibold text-white uppercase tracking-wider">
                         Producto
                       </th>
-                      <th className="text-left px-6 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider border-b-2 border-pentair-500">
+                      <th className="text-left px-6 py-3 text-xs font-semibold text-white uppercase tracking-wider">
                         SKU
                       </th>
-                      <th className="text-left px-6 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider border-b-2 border-pentair-500">
+                      <th className="text-left px-6 py-3 text-xs font-semibold text-white uppercase tracking-wider">
                         Rebate
                       </th>
-                      <th className="text-left px-6 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider border-b-2 border-pentair-500">
+                      <th className="text-left px-6 py-3 text-xs font-semibold text-white uppercase tracking-wider">
                         Vigencia
                       </th>
-                      <th className="text-left px-6 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider border-b-2 border-pentair-500">
+                      <th className="text-left px-6 py-3 text-xs font-semibold text-white uppercase tracking-wider">
                         Condiciones
                       </th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-100">
                     {rebatesByCategory.heaters.map((rebate) => (
-                      <tr key={rebate.id} className="hover:bg-gray-50">
+                      <tr key={rebate.id} className="hover:bg-[#F5F5F5]">
                         <td className="px-6 py-4">
-                          <span className="font-semibold text-gray-800">
+                          <span className="font-semibold text-[#0D274D]">
                             {rebate.name}
                           </span>
                           <p className="text-xs text-gray-500 mt-0.5">
@@ -234,7 +234,7 @@ export default function TablaPage() {
                               {rebate.skus.map((s) => (
                                 <code
                                   key={s.sku}
-                                  className="bg-gray-100 px-2 py-0.5 rounded text-xs"
+                                  className="bg-[#F5F5F5] px-2 py-0.5 rounded text-xs text-[#0D274D]"
                                 >
                                   {s.sku}
                                 </code>
@@ -247,12 +247,12 @@ export default function TablaPage() {
                           )}
                         </td>
                         <td className="px-6 py-4">
-                          <span className="text-xl font-bold text-pentair-600">
+                          <span className="text-xl font-bold text-[#00A651]">
                             ${rebate.rebateAmount}
                           </span>
                         </td>
                         <td className="px-6 py-4">
-                          <span className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs font-medium whitespace-nowrap">
+                          <span className="bg-[#FFD100]/20 text-[#0D274D] px-2 py-1 rounded-full text-xs font-medium whitespace-nowrap">
                             {formatDate(rebate.startDate)} -{" "}
                             {formatDate(rebate.endDate)}
                           </span>
@@ -272,11 +272,11 @@ export default function TablaPage() {
         {(selectedCategory === "all" || selectedCategory === "filters") &&
           rebatesByCategory.filters &&
           rebatesByCategory.filters.length > 0 && (
-            <section className="bg-white rounded-xl shadow-sm border overflow-hidden">
-              <div className="bg-gradient-to-r from-blue-50 to-cyan-50 px-6 py-4 border-b">
+            <section className="bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden">
+              <div className="bg-white px-6 py-4 border-b border-gray-200">
                 <div className="flex items-center gap-3">
                   <span className="text-2xl">🧼</span>
-                  <h2 className="text-lg font-bold text-gray-800">
+                  <h2 className="text-lg font-bold text-[#0D274D]">
                     Rebate #2: Filtros Clean & Clear®
                   </h2>
                 </div>
@@ -284,30 +284,30 @@ export default function TablaPage() {
 
               <div className="overflow-x-auto">
                 <table className="w-full">
-                  <thead className="bg-gray-50">
+                  <thead className="bg-[#0D274D]">
                     <tr>
-                      <th className="text-left px-6 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider border-b-2 border-pentair-500">
+                      <th className="text-left px-6 py-3 text-xs font-semibold text-white uppercase tracking-wider">
                         Producto
                       </th>
-                      <th className="text-left px-6 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider border-b-2 border-pentair-500">
+                      <th className="text-left px-6 py-3 text-xs font-semibold text-white uppercase tracking-wider">
                         SKU
                       </th>
-                      <th className="text-left px-6 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider border-b-2 border-pentair-500">
+                      <th className="text-left px-6 py-3 text-xs font-semibold text-white uppercase tracking-wider">
                         Rebate
                       </th>
-                      <th className="text-left px-6 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider border-b-2 border-pentair-500">
+                      <th className="text-left px-6 py-3 text-xs font-semibold text-white uppercase tracking-wider">
                         Vigencia
                       </th>
-                      <th className="text-left px-6 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider border-b-2 border-pentair-500">
+                      <th className="text-left px-6 py-3 text-xs font-semibold text-white uppercase tracking-wider">
                         Condiciones
                       </th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-100">
                     {rebatesByCategory.filters.map((rebate) => (
-                      <tr key={rebate.id} className="hover:bg-gray-50">
+                      <tr key={rebate.id} className="hover:bg-[#F5F5F5]">
                         <td className="px-6 py-4">
-                          <span className="font-semibold text-gray-800">
+                          <span className="font-semibold text-[#0D274D]">
                             {rebate.name}
                           </span>
                           <p className="text-xs text-gray-500 mt-0.5">
@@ -319,7 +319,7 @@ export default function TablaPage() {
                             {rebate.skus?.map((s) => (
                               <code
                                 key={s.sku}
-                                className="bg-gray-100 px-2 py-0.5 rounded text-xs"
+                                className="bg-[#F5F5F5] px-2 py-0.5 rounded text-xs text-[#0D274D]"
                               >
                                 {s.sku}
                               </code>
@@ -327,12 +327,12 @@ export default function TablaPage() {
                           </div>
                         </td>
                         <td className="px-6 py-4">
-                          <span className="text-xl font-bold text-pentair-600">
+                          <span className="text-xl font-bold text-[#00A651]">
                             ${rebate.rebateAmount}
                           </span>
                         </td>
                         <td className="px-6 py-4">
-                          <span className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs font-medium whitespace-nowrap">
+                          <span className="bg-[#FFD100]/20 text-[#0D274D] px-2 py-1 rounded-full text-xs font-medium whitespace-nowrap">
                             {formatDate(rebate.startDate)} -{" "}
                             {formatDate(rebate.endDate)}
                           </span>
@@ -352,11 +352,11 @@ export default function TablaPage() {
         {(selectedCategory === "all" || selectedCategory === "pumps") &&
           rebatesByCategory.pumps &&
           rebatesByCategory.pumps.length > 0 && (
-            <section className="bg-white rounded-xl shadow-sm border overflow-hidden">
-              <div className="bg-gradient-to-r from-teal-50 to-emerald-50 px-6 py-4 border-b">
+            <section className="bg-white rounded-lg shadow-md border border-gray-200 overflow-hidden">
+              <div className="bg-white px-6 py-4 border-b border-gray-200">
                 <div className="flex items-center gap-3">
                   <span className="text-2xl">💧</span>
-                  <h2 className="text-lg font-bold text-gray-800">
+                  <h2 className="text-lg font-bold text-[#0D274D]">
                     Rebate #3: Bombas IntelliFlo3® / IntelliPro3®
                   </h2>
                 </div>
@@ -364,30 +364,30 @@ export default function TablaPage() {
 
               <div className="overflow-x-auto">
                 <table className="w-full">
-                  <thead className="bg-gray-50">
+                  <thead className="bg-[#0D274D]">
                     <tr>
-                      <th className="text-left px-6 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider border-b-2 border-pentair-500">
+                      <th className="text-left px-6 py-3 text-xs font-semibold text-white uppercase tracking-wider">
                         Producto
                       </th>
-                      <th className="text-left px-6 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider border-b-2 border-pentair-500">
+                      <th className="text-left px-6 py-3 text-xs font-semibold text-white uppercase tracking-wider">
                         SKU
                       </th>
-                      <th className="text-left px-6 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider border-b-2 border-pentair-500">
+                      <th className="text-left px-6 py-3 text-xs font-semibold text-white uppercase tracking-wider">
                         Rebate
                       </th>
-                      <th className="text-left px-6 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider border-b-2 border-pentair-500">
+                      <th className="text-left px-6 py-3 text-xs font-semibold text-white uppercase tracking-wider">
                         Vigencia
                       </th>
-                      <th className="text-left px-6 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider border-b-2 border-pentair-500">
+                      <th className="text-left px-6 py-3 text-xs font-semibold text-white uppercase tracking-wider">
                         Condiciones
                       </th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-100">
                     {rebatesByCategory.pumps.map((rebate) => (
-                      <tr key={rebate.id} className="hover:bg-gray-50">
+                      <tr key={rebate.id} className="hover:bg-[#F5F5F5]">
                         <td className="px-6 py-4">
-                          <span className="font-semibold text-gray-800">
+                          <span className="font-semibold text-[#0D274D]">
                             {rebate.name}
                           </span>
                           <p className="text-xs text-gray-500 mt-0.5">
@@ -399,7 +399,7 @@ export default function TablaPage() {
                             {rebate.skus?.slice(0, 4).map((s) => (
                               <code
                                 key={s.sku}
-                                className="bg-gray-100 px-2 py-0.5 rounded text-xs"
+                                className="bg-[#F5F5F5] px-2 py-0.5 rounded text-xs text-[#0D274D]"
                               >
                                 {s.sku}
                               </code>
@@ -412,12 +412,12 @@ export default function TablaPage() {
                           </div>
                         </td>
                         <td className="px-6 py-4">
-                          <span className="text-xl font-bold text-pentair-600">
+                          <span className="text-xl font-bold text-[#00A651]">
                             ${rebate.rebateAmount}
                           </span>
                         </td>
                         <td className="px-6 py-4">
-                          <span className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs font-medium whitespace-nowrap">
+                          <span className="bg-[#FFD100]/20 text-[#0D274D] px-2 py-1 rounded-full text-xs font-medium whitespace-nowrap">
                             {formatDate(rebate.startDate)} -{" "}
                             {formatDate(rebate.endDate)}
                           </span>
@@ -434,8 +434,8 @@ export default function TablaPage() {
           )}
 
         {/* Nota explicativa */}
-        <section className="bg-pentair-50 border-l-4 border-pentair-500 rounded-r-xl p-6">
-          <h3 className="font-bold text-pentair-700 flex items-center gap-2 mb-3">
+        <section className="bg-[#E8F5E9] border-l-4 border-[#00A651] rounded-r-lg p-6">
+          <h3 className="font-bold text-[#0D274D] flex items-center gap-2 mb-3">
             <span>📋</span> Cómo participar
           </h3>
           <ol className="list-decimal list-inside space-y-2 text-sm text-gray-700">
@@ -453,7 +453,7 @@ export default function TablaPage() {
                 href="https://www.pentair.com/hotdeals"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-pentair-600 font-semibold hover:underline"
+                className="text-[#00A651] font-semibold hover:underline"
               >
                 pentair.com/hotdeals
               </a>{" "}
@@ -463,14 +463,14 @@ export default function TablaPage() {
               <strong>Recibe</strong> tu tarjeta virtual Mastercard por email
             </li>
           </ol>
-          <div className="mt-4 pt-4 border-t border-pentair-200 text-xs text-gray-600">
+          <div className="mt-4 pt-4 border-t border-[#00A651]/20 text-xs text-gray-600">
             <p>
               <strong>Términos y condiciones completos:</strong>{" "}
               <a
                 href="https://www.pentair.com/hotdeals"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-pentair-600 hover:underline"
+                className="text-[#00A651] hover:underline"
               >
                 www.pentair.com/hotdeals
               </a>{" "}
@@ -479,7 +479,7 @@ export default function TablaPage() {
                 href="https://www.pentair.com/latrebate"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-pentair-600 hover:underline"
+                className="text-[#00A651] hover:underline"
               >
                 www.pentair.com/latrebate
               </a>
@@ -488,20 +488,20 @@ export default function TablaPage() {
         </section>
       </div>
 
-      {/* Footer */}
-      <footer className="bg-pentair-800 text-white">
+      {/* Footer - Navy Dark */}
+      <footer className="bg-[#0D274D] text-white">
         <div className="max-w-6xl mx-auto px-4 py-6">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <div className="text-sm">
               <p>© 2026 Pentair Pool. Todos los derechos reservados.</p>
-              <p className="text-pentair-300 text-xs mt-1">
+              <p className="text-gray-300 text-xs mt-1">
                 Los rebates están sujetos a términos y condiciones.
               </p>
             </div>
             <div className="flex items-center gap-4">
               <Link
                 href="/"
-                className="text-sm text-pentair-200 hover:text-white"
+                className="text-sm text-[#FFD100] hover:text-white transition-colors"
               >
                 ← Volver a Calculadora
               </Link>

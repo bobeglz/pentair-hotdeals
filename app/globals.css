@@ -45,57 +45,60 @@
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
   
-  /* Pentair Colors */
-  --color-pentair-50: #E6F4FA;
-  --color-pentair-100: #CCE9F5;
-  --color-pentair-200: #99D3EB;
-  --color-pentair-300: #66BDE1;
-  --color-pentair-400: #33A7D7;
-  --color-pentair-500: #00A3E0;
-  --color-pentair-600: #0077B3;
-  --color-pentair-700: #005A8C;
-  --color-pentair-800: #004A73;
-  --color-pentair-900: #003A5A;
-  --color-pentair-turquoise: #4FC3DC;
-  --color-gold: #FFD700;
-  --color-success: #22C55E;
-  --color-warning: #F59E0B;
+  /* Official Pentair Colors */
+  --color-pentair-navy: #0D274D;
+  --color-pentair-green: #00A651;
+  --color-pentair-gold: #FFD100;
+  --color-pentair-gray: #F5F5F5;
+  --color-pentair-50: #E8F5E9;
+  --color-pentair-100: #C8E6C9;
+  --color-pentair-200: #A5D6A7;
+  --color-pentair-300: #81C784;
+  --color-pentair-400: #66BB6A;
+  --color-pentair-500: #00A651;
+  --color-pentair-600: #00953F;
+  --color-pentair-700: #00843A;
+  --color-pentair-800: #0D274D;
+  --color-pentair-900: #091C38;
+  --color-gold: #FFD100;
+  --color-success: #00A651;
+  --color-warning: #FFD100;
   --color-error: #EF4444;
 }
 
 :root {
-  --radius: 0.75rem;
-  --background: #F8FAFC;
-  --foreground: #0F172A;
+  --radius: 0.5rem;
+  --background: #FFFFFF;
+  --foreground: #0D274D;
   --card: #FFFFFF;
-  --card-foreground: #0F172A;
+  --card-foreground: #0D274D;
   --popover: #FFFFFF;
-  --popover-foreground: #0F172A;
-  --primary: #0077B3;
+  --popover-foreground: #0D274D;
+  --primary: #00A651;
   --primary-foreground: #FFFFFF;
-  --secondary: #E6F4FA;
-  --secondary-foreground: #005A8C;
-  --muted: #F1F5F9;
+  --secondary: #F5F5F5;
+  --secondary-foreground: #0D274D;
+  --muted: #F5F5F5;
   --muted-foreground: #64748B;
-  --accent: #00A3E0;
-  --accent-foreground: #FFFFFF;
+  --accent: #FFD100;
+  --accent-foreground: #0D274D;
   --destructive: #EF4444;
-  --border: #E2E8F0;
-  --input: #E2E8F0;
-  --ring: #0077B3;
-  --chart-1: #0077B3;
-  --chart-2: #00A3E0;
-  --chart-3: #4FC3DC;
-  --chart-4: #FFD700;
-  --chart-5: #22C55E;
-  --sidebar: #005A8C;
+  --border: #E5E7EB;
+  --input: #E5E7EB;
+  --ring: #00A651;
+  --chart-1: #00A651;
+  --chart-2: #0D274D;
+  --chart-3: #FFD100;
+  --chart-4: #66BB6A;
+  --chart-5: #1E3A5F;
+  --sidebar: #0D274D;
   --sidebar-foreground: #FFFFFF;
-  --sidebar-primary: #00A3E0;
+  --sidebar-primary: #00A651;
   --sidebar-primary-foreground: #FFFFFF;
-  --sidebar-accent: #0077B3;
-  --sidebar-accent-foreground: #FFFFFF;
-  --sidebar-border: #004A73;
-  --sidebar-ring: #00A3E0;
+  --sidebar-accent: #FFD100;
+  --sidebar-accent-foreground: #0D274D;
+  --sidebar-border: #091C38;
+  --sidebar-ring: #00A651;
 }
 
 @layer base {
@@ -107,9 +110,20 @@
   }
 }
 
-/* Custom utilities for Pentair styling */
-.pentair-gradient {
-  background: linear-gradient(135deg, #005A8C 0%, #0077B3 50%, #00A3E0 100%);
+/* Official Pentair styling utilities */
+.pentair-header {
+  background: #FFFFFF;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.pentair-accent-bar {
+  background: #FFD100;
+  color: #0D274D;
+}
+
+.pentair-footer {
+  background: #0D274D;
+  color: #FFFFFF;
 }
 
 .pentair-card-hover {
@@ -117,6 +131,15 @@
 }
 
 .pentair-card-hover:hover {
-  box-shadow: 0 10px 15px rgba(0,0,0,0.1), 0 4px 6px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 12px rgba(13,39,77,0.1);
   transform: translateY(-2px);
+}
+
+.pentair-btn-primary {
+  background: #00A651;
+  color: #FFFFFF;
+}
+
+.pentair-btn-primary:hover {
+  background: #00953F;
 }
