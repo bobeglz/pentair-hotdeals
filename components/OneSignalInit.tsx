@@ -24,6 +24,7 @@ export function OneSignalInit() {
     window.OneSignalDeferred.push(async function(OneSignal: any) {
       await OneSignal.init({
         appId: ONESIGNAL_APP_ID,
+        safari_web_id: "web.onesignal.auto.0a199198-d5df-41c5-963c-72a0258657aa",
         allowLocalhostAsSecureOrigin: true,
         serviceWorkerParam: { scope: "/" },
         serviceWorkerPath: "/OneSignalSDKWorker.js",
