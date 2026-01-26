@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import Image from "next/image";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -12,6 +13,18 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { RebatesData, Rebate } from "@/lib/types";
+
+// Product image mapping
+const productImages: Record<string, string> = {
+  "heaters-eti": "/products/ETi400-banner-2.png",
+  "heaters-mastertemp": "/products/mastertemp.png",
+  "filters-plus-large": "/products/CNCPlus 320.png",
+  "filters-fullflo": "/products/FULLFLOXF-PLEATCO.png",
+  "filters-triton": "/products/Triton II_ajuste color.png",
+  "filters-rp": "/products/CNCPlus 320.png",
+  "pumps-intelliflo3": "/products/3.0 HP - IntelliFlo3 VSF Product Image - Left Side.png",
+  "pumps-intellipro3": "/products/2022-Pentair-IntelliPro3-LeftAngle.png",
+};
 
 interface CalculatorProps {
   data: RebatesData;
@@ -167,6 +180,20 @@ export function Calculator({ data }: CalculatorProps) {
               <span className="text-2xl">✅</span>
               <span className="text-lg font-bold">¡REBATE DISPONIBLE!</span>
             </div>
+
+            {/* Product Image */}
+            {productImages[result.id] && (
+              <div className="flex justify-center">
+                <Image
+                  src={productImages[result.id]}
+                  alt={result.name}
+                  width={200}
+                  height={200}
+                  className="object-contain"
+                  style={{ height: "auto" }}
+                />
+              </div>
+            )}
 
             {/* Product Info */}
             <div className="space-y-1">
