@@ -5,6 +5,8 @@ import { OfflineBanner } from "@/components/OfflineBanner";
 import { ServiceWorkerRegistration } from "@/components/ServiceWorkerRegistration";
 import { Providers } from "@/components/Providers";
 import { InstallPrompt } from "@/components/InstallPrompt";
+import { OneSignalInit } from "@/components/OneSignalInit";
+import { NotificationOnboarding } from "@/components/NotificationOnboarding";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -62,8 +64,10 @@ export default function RootLayout({
       <body className={`${inter.variable} font-sans`}>
         <Providers>
           <ServiceWorkerRegistration />
+          <OneSignalInit />
           <OfflineBanner />
           <InstallPrompt />
+          <NotificationOnboarding />
           {children}
         </Providers>
       </body>
