@@ -20,7 +20,8 @@ export const metadata: Metadata = {
     title: "Pentair Hot Deals",
   },
   icons: {
-    apple: "/icon-192.png",
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
   openGraph: {
     title: "🔥 Pentair Hot Deals | Rebates hasta $400 USD",
