@@ -4,13 +4,14 @@ import { useState, useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import rebatesData from "@/data/rebates.json";
-import { RebatesData, Rebate } from "@/lib/types";
+import { RebatesData, Rebate, Country } from "@/lib/types";
 import { generateRebatePDF } from "@/components/pdf-generator";
 import { ShareMenu } from "@/components/share-menu";
 import { trackEvent } from "@/lib/analytics";
 import { Header } from "@/components/Header";
 import { BottomNav } from "@/components/BottomNav";
 import { useI18n } from "@/lib/i18n/context";
+import { CountrySheet } from "@/components/CountrySheet";
 
 // Product image mapping
 const productImages: Record<string, string> = {
@@ -31,6 +32,8 @@ export default function TablaPage() {
   const { t, locale } = useI18n();
   const [selectedCountry, setSelectedCountry] = useState<string>("all");
   const [expandedCard, setExpandedCard] = useState<string | null>(null);
+  const [sheetRebate, setSheetRebate] = useState<Rebate | null>(null);
+  const [sheetAction, setSheetAction] = useState<"pdf" | "share" | null>(null);
 
   // Filtrar rebates por país
   const filteredRebates = useMemo(() => {
@@ -253,9 +256,9 @@ export default function TablaPage() {
                           )}
 
                           {/* Actions */}
-                          <div className="pt-1">
+                          <div className="flex gap-2 pt-1">
                             {selectedCountry !== "all" && selectedCountryData ? (
-                              <div className="flex gap-2">
+                              <>
                                 <button
                                   onClick={() => {
                                     trackEvent("pdf_generated", {
@@ -271,54 +274,35 @@ export default function TablaPage() {
                                 <div className="flex-1">
                                   <ShareMenu rebate={rebate} country={selectedCountryData} />
                                 </div>
-                                <Link
-                                  href={`/terminos/${rebate.id}`}
-                                  className="flex-1 border border-[#0D274D] text-[#0D274D] text-xs font-semibold py-2.5 px-3 rounded-lg text-center active:bg-gray-50"
-                                >
-                                  📋 T&C
-                                </Link>
-                              </div>
+                              </>
                             ) : (
-                              <div className="space-y-2">
-                                <div className="text-xs text-gray-500 text-center mb-2">
-                                  Elige país para generar PDF:
-                                </div>
-                                <div className="flex flex-wrap gap-2 justify-center">
-                                  {rebate.countries.slice(0, 4).map((countryCode) => {
-                                    const countryData = data.countries.find((c) => c.code === countryCode);
-                                    if (!countryData) return null;
-                                    return (
-                                      <button
-                                        key={countryCode}
-                                        onClick={() => {
-                                          trackEvent("pdf_generated", {
-                                            product: rebate.name,
-                                            country: countryCode,
-                                          });
-                                          generateRebatePDF({ rebate, country: countryData });
-                                        }}
-                                        className="bg-[#00A651] text-white text-xs font-semibold py-2 px-3 rounded-lg active:bg-[#00953F]"
-                                      >
-                                        {countryData.flag} PDF
-                                      </button>
-                                    );
-                                  })}
-                                  {rebate.countries.length > 4 && (
-                                    <span className="text-xs text-gray-400 self-center">
-                                      +{rebate.countries.length - 4} más
-                                    </span>
-                                  )}
-                                </div>
-                                <div className="flex gap-2 pt-1">
-                                  <Link
-                                    href={`/terminos/${rebate.id}`}
-                                    className="flex-1 border border-[#0D274D] text-[#0D274D] text-xs font-semibold py-2.5 px-3 rounded-lg text-center active:bg-gray-50"
-                                  >
-                                    📋 T&C
-                                  </Link>
-                                </div>
-                              </div>
+                              <>
+                                <button
+                                  onClick={() => {
+                                    setSheetRebate(rebate);
+                                    setSheetAction("pdf");
+                                  }}
+                                  className="flex-1 bg-[#00A651] text-white text-xs font-semibold py-2.5 px-3 rounded-lg active:bg-[#00953F]"
+                                >
+                                  📄 PDF
+                                </button>
+                                <button
+                                  onClick={() => {
+                                    setSheetRebate(rebate);
+                                    setSheetAction("share");
+                                  }}
+                                  className="flex-1 bg-[#0077B3] text-white text-xs font-semibold py-2.5 px-3 rounded-lg active:bg-[#005A8C]"
+                                >
+                                  📤 Enviar
+                                </button>
+                              </>
                             )}
+                            <Link
+                              href={`/terminos/${rebate.id}`}
+                              className="flex-1 border border-[#0D274D] text-[#0D274D] text-xs font-semibold py-2.5 px-3 rounded-lg text-center active:bg-gray-50"
+                            >
+                              📋 T&C
+                            </Link>
                           </div>
                         </div>
                       )}
@@ -369,6 +353,32 @@ export default function TablaPage() {
       </div>
 
       <BottomNav />
+
+      {/* Country Selection Sheet */}
+      {sheetRebate && sheetAction && (
+        <CountrySheet
+          countries={sheetRebate.countries
+            .map((code) => data.countries.find((c) => c.code === code))
+            .filter((c): c is Country => c !== undefined)}
+          title={sheetAction === "pdf" ? "Generar PDF para:" : "Enviar a:"}
+          onSelect={(country) => {
+            if (sheetAction === "pdf") {
+              trackEvent("pdf_generated", {
+                product: sheetRebate.name,
+                country: country.code,
+              });
+              generateRebatePDF({ rebate: sheetRebate, country });
+            }
+            // For share, we'd need to open share menu - for now just close
+            setSheetRebate(null);
+            setSheetAction(null);
+          }}
+          onClose={() => {
+            setSheetRebate(null);
+            setSheetAction(null);
+          }}
+        />
+      )}
     </main>
   );
 }
