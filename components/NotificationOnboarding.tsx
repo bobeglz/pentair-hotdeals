@@ -48,13 +48,24 @@ export function NotificationOnboarding() {
     // Check if notifications are supported
     if (!("Notification" in window)) return;
 
-    // Show after a delay (after install prompt potentially)
+    // Show after install prompt has had time to show and be dismissed
+    // Install prompt shows at 45s, so we wait until 90s
     const timer = setTimeout(async () => {
+      // Don't show if install prompt is still visible
+      const installDismissed = localStorage.getItem("pwa-install-dismissed");
+      const isStandalone = window.matchMedia("(display-mode: standalone)").matches;
+      
+      // Only show if: installed OR install prompt was dismissed
+      if (!isStandalone && !installDismissed) {
+        // Wait a bit more for install prompt
+        return;
+      }
+      
       const hasPermission = await getNotificationPermission();
       if (!hasPermission) {
         setShow(true);
       }
-    }, 60000); // 60 seconds
+    }, 90000); // 90 seconds (after install prompt at 45s)
 
     return () => clearTimeout(timer);
   }, []);
