@@ -87,39 +87,34 @@ export default function TerminosPage() {
         </div>
       </div>
 
-      {/* Actions - Mobile friendly */}
-      <div className="bg-[#E8F5E9] px-4 py-3 flex gap-2">
-        <a
-          href={pdfUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex-1 bg-[#00A651] text-white text-sm font-semibold py-2.5 px-4 rounded-lg text-center"
-        >
-          📄 Abrir PDF
-        </a>
-        <a
-          href={pdfUrl}
-          download
-          className="flex-1 border border-[#00A651] text-[#00A651] text-sm font-semibold py-2.5 px-4 rounded-lg text-center"
-        >
-          📥 Descargar
-        </a>
-      </div>
-
-      {/* PDF Embed - Works better on desktop */}
-      <div className="flex-1 bg-gray-100">
-        <iframe
-          src={`${pdfUrl}#toolbar=0&navpanes=0`}
-          className="w-full h-full min-h-[60vh]"
-          title={`Términos y Condiciones - ${rebate.name}`}
-        />
-      </div>
-
-      {/* Mobile hint */}
-      <div className="bg-white border-t border-gray-200 px-4 py-3 text-center">
-        <p className="text-xs text-gray-500">
-          💡 En móvil, usa "Abrir PDF" para mejor visualización
-        </p>
+      {/* Actions */}
+      <div className="flex-1 flex flex-col items-center justify-center p-6 bg-gray-50">
+        <div className="bg-white rounded-2xl shadow-sm p-8 max-w-sm w-full text-center">
+          <div className="text-6xl mb-4">📄</div>
+          <h2 className="font-bold text-[#0D274D] text-lg mb-2">
+            Documento PDF
+          </h2>
+          <p className="text-sm text-gray-500 mb-6">
+            Términos y condiciones oficiales de esta promoción
+          </p>
+          
+          <a
+            href={pdfUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block w-full bg-[#00A651] text-white font-semibold py-3 px-6 rounded-xl text-center mb-3"
+          >
+            📄 Ver PDF
+          </a>
+          
+          <a
+            href={pdfUrl}
+            download
+            className="block w-full border-2 border-[#00A651] text-[#00A651] font-semibold py-3 px-6 rounded-xl text-center"
+          >
+            📥 Descargar
+          </a>
+        </div>
       </div>
 
       {/* Bottom Navigation */}
