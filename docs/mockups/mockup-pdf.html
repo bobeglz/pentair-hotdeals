@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pentair Hot Deals 2026 - PDF Mockup</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .page {
+            width: 816px; /* Letter size */
+            height: 1056px;
+            background: white;
+            margin: 0 auto 40px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            position: relative;
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #00A3E0;
+        }
+        
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            color: #00A3E0;
+        }
+        
+        .logo span {
+            color: #333;
+        }
+        
+        .promo-badge {
+            background: linear-gradient(135deg, #00A3E0, #0077B6);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        
+        .title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .title h1 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .title p {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .products-row {
+            display: grid;
+            grid-template-columns: 180px repeat(5, 1fr);
+            gap: 2px;
+            margin-bottom: 20px;
+        }
+        
+        .product-header {
+            background: #00A3E0;
+            color: white;
+            padding: 15px 10px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 11px;
+            border-radius: 8px 8px 0 0;
+        }
+        
+        .product-header.corner {
+            background: #0077B6;
+            border-radius: 8px 0 0 0;
+        }
+        
+        .product-header img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            margin-bottom: 8px;
+            filter: brightness(0) invert(1);
+        }
+        
+        .product-icon {
+            font-size: 30px;
+            margin-bottom: 5px;
+        }
+        
+        .table-body {
+            display: grid;
+            grid-template-columns: 180px repeat(5, 1fr);
+            gap: 2px;
+        }
+        
+        .table-row {
+            display: contents;
+        }
+        
+        .cell {
+            padding: 12px 8px;
+            text-align: center;
+            font-size: 12px;
+            background: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .cell.label {
+            background: #e9ecef;
+            font-weight: 600;
+            text-align: left;
+            justify-content: flex-start;
+            color: #333;
+        }
+        
+        .cell.highlight {
+            background: #d4edda;
+            color: #155724;
+            font-weight: bold;
+        }
+        
+        .cell.amount {
+            font-size: 16px;
+            font-weight: bold;
+            color: #00A3E0;
+        }
+        
+        .cell .check {
+            color: #28a745;
+            font-size: 18px;
+        }
+        
+        .cell .cross {
+            color: #dc3545;
+            font-size: 14px;
+        }
+        
+        .country-flags {
+            display: flex;
+            gap: 4px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .flag {
+            font-size: 16px;
+        }
+        
+        .footer {
+            position: absolute;
+            bottom: 40px;
+            left: 40px;
+            right: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            font-size: 11px;
+            color: #666;
+        }
+        
+        .qr-section {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .qr-placeholder {
+            width: 60px;
+            height: 60px;
+            background: #333;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 8px;
+        }
+        
+        .validity {
+            background: #fff3cd;
+            padding: 8px 15px;
+            border-radius: 5px;
+            color: #856404;
+            font-weight: 500;
+        }
+        
+        .note {
+            margin-top: 25px;
+            padding: 15px;
+            background: #e7f5ff;
+            border-radius: 8px;
+            font-size: 11px;
+            color: #0077B6;
+        }
+        
+        .page-indicator {
+            position: absolute;
+            bottom: 15px;
+            right: 40px;
+            font-size: 10px;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="header">
+            <div class="logo">PENTAIR <span>Pool</span></div>
+            <div class="promo-badge">🔥 HOT DEALS Q1 2026</div>
+        </div>
+        
+        <div class="title">
+            <h1>Tabla Comparativa de Promociones</h1>
+            <p>Programa de Rebates para Distribuidores Autorizados — América Latina</p>
+        </div>
+        
+        <div class="products-row">
+            <div class="product-header corner">PROMOCIÓN</div>
+            <div class="product-header">
+                <div class="product-icon">💡</div>
+                GloBrite
+            </div>
+            <div class="product-header">
+                <div class="product-icon">🌊</div>
+                IntelliFlo
+            </div>
+            <div class="product-header">
+                <div class="product-icon">🔥</div>
+                MasterTemp
+            </div>
+            <div class="product-header">
+                <div class="product-icon">⚡</div>
+                IntelliChlor
+            </div>
+            <div class="product-header">
+                <div class="product-icon">🎛️</div>
+                IntelliConnect
+            </div>
+        </div>
+        
+        <div class="table-body">
+            <div class="table-row">
+                <div class="cell label">💰 Rebate Máximo</div>
+                <div class="cell amount">$75</div>
+                <div class="cell amount">$400</div>
+                <div class="cell amount">$200</div>
+                <div class="cell amount">$150</div>
+                <div class="cell amount">$55</div>
+            </div>
+            
+            <div class="table-row">
+                <div class="cell label">📅 Vigencia</div>
+                <div class="cell">31 May 2026</div>
+                <div class="cell">31 May 2026</div>
+                <div class="cell">31 Mar 2026</div>
+                <div class="cell">31 May 2026</div>
+                <div class="cell">31 May 2026</div>
+            </div>
+            
+            <div class="table-row">
+                <div class="cell label">🇲🇽 México</div>
+                <div class="cell"><span class="check">✓</span></div>
+                <div class="cell"><span class="check">✓</span></div>
+                <div class="cell"><span class="check">✓</span></div>
+                <div class="cell"><span class="check">✓</span></div>
+                <div class="cell"><span class="check">✓</span></div>
+            </div>
+            
+            <div class="table-row">
+                <div class="cell label">🇧🇷 Brasil</div>
+                <div class="cell"><span class="check">✓</span></div>
+                <div class="cell"><span class="check">✓</span></div>
+                <div class="cell"><span class="cross">—</span></div>
+                <div class="cell"><span class="check">✓</span></div>
+                <div class="cell"><span class="cross">—</span></div>
+            </div>
+            
+            <div class="table-row">
+                <div class="cell label">🇨🇴 Colombia</div>
+                <div class="cell"><span class="check">✓</span></div>
+                <div class="cell"><span class="check">✓</span></div>
+                <div class="cell"><span class="cross">—</span></div>
+                <div class="cell"><span class="check">✓</span></div>
+                <div class="cell"><span class="check">✓</span></div>
+            </div>
+            
+            <div class="table-row">
+                <div class="cell label">🇵🇪 Perú</div>
+                <div class="cell"><span class="check">✓</span></div>
+                <div class="cell"><span class="cross">—</span></div>
+                <div class="cell"><span class="cross">—</span></div>
+                <div class="cell"><span class="check">✓</span></div>
+                <div class="cell"><span class="cross">—</span></div>
+            </div>
+            
+            <div class="table-row">
+                <div class="cell label">🇨🇱 Chile</div>
+                <div class="cell"><span class="check">✓</span></div>
+                <div class="cell"><span class="check">✓</span></div>
+                <div class="cell"><span class="check">✓</span></div>
+                <div class="cell"><span class="check">✓</span></div>
+                <div class="cell"><span class="check">✓</span></div>
+            </div>
+            
+            <div class="table-row">
+                <div class="cell label">🇦🇷 Argentina</div>
+                <div class="cell"><span class="cross">—</span></div>
+                <div class="cell"><span class="check">✓</span></div>
+                <div class="cell"><span class="cross">—</span></div>
+                <div class="cell"><span class="cross">—</span></div>
+                <div class="cell"><span class="cross">—</span></div>
+            </div>
+            
+            <div class="table-row">
+                <div class="cell label">🌎 Caribe</div>
+                <div class="cell"><span class="check">✓</span></div>
+                <div class="cell"><span class="check">✓</span></div>
+                <div class="cell"><span class="check">✓</span></div>
+                <div class="cell"><span class="check">✓</span></div>
+                <div class="cell"><span class="check">✓</span></div>
+            </div>
+        </div>
+        
+        <div class="note">
+            <strong>📋 Nota:</strong> Los montos de rebate pueden variar según el modelo específico y volumen de compra. 
+            Consulta los Términos y Condiciones completos para ver los SKUs elegibles de cada promoción.
+        </div>
+        
+        <div class="footer">
+            <div class="qr-section">
+                <div class="qr-placeholder">QR<br>CODE</div>
+                <div>
+                    <strong>Términos y Condiciones</strong><br>
+                    pentairpool.com/latam/rebates
+                </div>
+            </div>
+            <div class="validity">⏰ Válido hasta 31 de Mayo 2026</div>
+        </div>
+        
+        <div class="page-indicator">Página 1 de 2</div>
+    </div>
+</body>
+</html>

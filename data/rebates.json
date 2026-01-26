@@ -1,0 +1,200 @@
+{
+  "lastUpdated": "2026-01-26",
+  "countries": [
+    { "code": "US", "name": "Estados Unidos", "flag": "🇺🇸" },
+    { "code": "PR", "name": "Puerto Rico", "flag": "🇵🇷" },
+    { "code": "MX", "name": "México", "flag": "🇲🇽" },
+    { "code": "CR", "name": "Costa Rica", "flag": "🇨🇷" },
+    { "code": "EC", "name": "Ecuador", "flag": "🇪🇨" },
+    { "code": "SV", "name": "El Salvador", "flag": "🇸🇻" },
+    { "code": "GT", "name": "Guatemala", "flag": "🇬🇹" },
+    { "code": "HN", "name": "Honduras", "flag": "🇭🇳" },
+    { "code": "JM", "name": "Jamaica", "flag": "🇯🇲" },
+    { "code": "PE", "name": "Perú", "flag": "🇵🇪" }
+  ],
+  "categories": [
+    {
+      "id": "heaters",
+      "name": "Calentadores",
+      "icon": "🔥",
+      "type": "bounty",
+      "description": "Rebate por reemplazo de calentadores de la competencia"
+    },
+    {
+      "id": "filters",
+      "name": "Filtros",
+      "icon": "🧼",
+      "type": "standard",
+      "description": "Rebate por instalación de filtros elegibles"
+    },
+    {
+      "id": "pumps",
+      "name": "Bombas",
+      "icon": "💧",
+      "type": "upgrade",
+      "description": "Rebate por upgrade a bombas de velocidad variable"
+    }
+  ],
+  "rebates": [
+    {
+      "id": "heaters-eti",
+      "category": "heaters",
+      "name": "ETi® 400 / ETi® 250",
+      "description": "Calentadores de alta eficiencia para piscina y spa",
+      "rebateAmount": 400,
+      "currency": "USD",
+      "startDate": "2025-11-13",
+      "endDate": "2026-05-31",
+      "submissionDeadlineDays": 60,
+      "paymentMethod": "Tarjeta virtual Mastercard",
+      "type": "bounty",
+      "competitorBrands": ["Jandy", "Hayward", "Raypak", "Lochinvar", "Laars"],
+      "countries": ["US", "PR", "MX", "CR", "EC", "SV", "GT", "HN", "JM", "PE"],
+      "skus": [],
+      "termsUrl": "https://www.pentair.com/hotdeals"
+    },
+    {
+      "id": "heaters-mastertemp",
+      "category": "heaters",
+      "name": "MasterTemp® / Max-E-Therm®",
+      "description": "Calentadores de alto rendimiento para piscina y spa",
+      "rebateAmount": 250,
+      "currency": "USD",
+      "startDate": "2025-11-13",
+      "endDate": "2026-05-31",
+      "submissionDeadlineDays": 60,
+      "paymentMethod": "Tarjeta virtual Mastercard",
+      "type": "bounty",
+      "competitorBrands": ["Jandy", "Hayward", "Raypak", "Lochinvar", "Laars"],
+      "countries": ["US", "PR", "MX", "CR", "EC", "SV", "GT", "HN", "JM", "PE"],
+      "skus": [],
+      "termsUrl": "https://www.pentair.com/hotdeals"
+    },
+    {
+      "id": "filters-plus-large",
+      "category": "filters",
+      "name": "Clean & Clear® Plus 320/420/520",
+      "description": "Filtros de cartucho de alta capacidad",
+      "rebateAmount": 100,
+      "currency": "USD",
+      "startDate": "2025-12-08",
+      "endDate": "2026-05-31",
+      "submissionDeadlineDays": 60,
+      "paymentMethod": "Tarjeta virtual Mastercard",
+      "type": "standard",
+      "countries": ["US", "PR", "MX", "CR", "EC", "SV", "GT", "HN", "JM", "PE"],
+      "skus": [
+        { "sku": "160340", "model": "Clean & Clear® Plus 320" },
+        { "sku": "160301", "model": "Clean & Clear® Plus 420" },
+        { "sku": "160332", "model": "Clean & Clear® Plus 520" }
+      ],
+      "termsUrl": "https://www.pentair.com/latrebate"
+    },
+    {
+      "id": "filters-fullflo",
+      "category": "filters",
+      "name": "FullFloXF™ C620",
+      "description": "Filtro de alta eficiencia",
+      "rebateAmount": 100,
+      "currency": "USD",
+      "startDate": "2025-12-08",
+      "endDate": "2026-05-31",
+      "submissionDeadlineDays": 60,
+      "paymentMethod": "Tarjeta virtual Mastercard",
+      "type": "standard",
+      "countries": ["US", "PR", "MX", "CR", "EC", "SV", "GT", "HN", "JM", "PE"],
+      "skus": [
+        { "sku": "160448", "model": "FullFloXF™ C620" }
+      ],
+      "termsUrl": "https://www.pentair.com/latrebate"
+    },
+    {
+      "id": "filters-triton",
+      "category": "filters",
+      "name": "Tritón® II TR60",
+      "description": "Filtro de montaje lateral",
+      "rebateAmount": 100,
+      "currency": "USD",
+      "startDate": "2025-12-08",
+      "endDate": "2026-05-31",
+      "submissionDeadlineDays": 60,
+      "paymentMethod": "Tarjeta virtual Mastercard",
+      "type": "standard",
+      "countries": ["US", "PR", "MX", "CR", "EC", "SV", "GT", "HN", "JM", "PE"],
+      "skus": [
+        { "sku": "140264", "model": "Tritón® II TR60" }
+      ],
+      "termsUrl": "https://www.pentair.com/latrebate"
+    },
+    {
+      "id": "filters-rp",
+      "category": "filters",
+      "name": "Clean & Clear® RP 100/150/200",
+      "description": "Filtros de cartucho compactos",
+      "rebateAmount": 50,
+      "currency": "USD",
+      "startDate": "2025-12-08",
+      "endDate": "2026-05-31",
+      "submissionDeadlineDays": 60,
+      "paymentMethod": "Tarjeta virtual Mastercard",
+      "type": "standard",
+      "countries": ["US", "PR", "MX", "CR", "EC", "SV", "GT", "HN", "JM", "PE"],
+      "skus": [
+        { "sku": "160354", "model": "Clean & Clear® RP 100" },
+        { "sku": "160355", "model": "Clean & Clear® RP 150" },
+        { "sku": "160353", "model": "Clean & Clear® RP 200" }
+      ],
+      "termsUrl": "https://www.pentair.com/latrebate"
+    },
+    {
+      "id": "pumps-intelliflo3",
+      "category": "pumps",
+      "name": "IntelliFlo3® VSF",
+      "description": "Bombas de velocidad y flujo variable",
+      "rebateAmount": 100,
+      "currency": "USD",
+      "startDate": "2025-12-08",
+      "endDate": "2026-05-31",
+      "submissionDeadlineDays": 60,
+      "paymentMethod": "Tarjeta virtual Mastercard",
+      "type": "upgrade",
+      "countries": ["US", "PR", "MX", "CR", "EC", "SV", "GT", "HN", "JM", "PE"],
+      "skus": [
+        { "sku": "11065", "model": "IntelliFlo3® VSF 1.5" },
+        { "sku": "11066", "model": "IntelliFlo3® VSF 1.5 con relay board" },
+        { "sku": "11067", "model": "IntelliFlo3® VSF 1.5 con pantalla táctil" },
+        { "sku": "11068", "model": "IntelliFlo3® VSF 1.5 con pantalla táctil y relay board" },
+        { "sku": "11075", "model": "IntelliFlo3® VSF 3.0" },
+        { "sku": "11076", "model": "IntelliFlo3® VSF 3.0 con relay board" },
+        { "sku": "11077", "model": "IntelliFlo3® VSF 3.0 con pantalla táctil" },
+        { "sku": "11078", "model": "IntelliFlo3® VSF 3.0 con pantalla táctil y relay board" }
+      ],
+      "termsUrl": "https://www.pentair.com/latrebate"
+    },
+    {
+      "id": "pumps-intellipro3",
+      "category": "pumps",
+      "name": "IntelliPro3® VSF",
+      "description": "Bombas de velocidad y flujo variable (línea profesional)",
+      "rebateAmount": 100,
+      "currency": "USD",
+      "startDate": "2025-12-08",
+      "endDate": "2026-05-31",
+      "submissionDeadlineDays": 60,
+      "paymentMethod": "Tarjeta virtual Mastercard",
+      "type": "upgrade",
+      "countries": ["US", "PR", "MX", "CR", "EC", "SV", "GT", "HN", "JM", "PE"],
+      "skus": [
+        { "sku": "13065", "model": "IntelliPro3® VSF 1.5" },
+        { "sku": "13066", "model": "IntelliPro3® VSF 1.5 con relay board" },
+        { "sku": "13067", "model": "IntelliPro3® VSF 1.5 con pantalla táctil" },
+        { "sku": "13068", "model": "IntelliPro3® VSF 1.5 con pantalla táctil y relay board" },
+        { "sku": "13075", "model": "IntelliPro3® VSF 3.0" },
+        { "sku": "13076", "model": "IntelliPro3® VSF 3.0 con relay board" },
+        { "sku": "13077", "model": "IntelliPro3® VSF 3.0 con pantalla táctil" },
+        { "sku": "13078", "model": "IntelliPro3® VSF 3.0 con pantalla táctil y relay board" }
+      ],
+      "termsUrl": "https://www.pentair.com/latrebate"
+    }
+  ]
+}
