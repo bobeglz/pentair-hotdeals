@@ -14,6 +14,14 @@ export function InstallPrompt() {
   const [isStandalone, setIsStandalone] = useState(false);
 
   useEffect(() => {
+    // Check if mobile device - don't show on desktop
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+      || (navigator.maxTouchPoints > 0 && window.innerWidth < 1024);
+    
+    if (!isMobile) {
+      return; // Don't show install prompt on desktop
+    }
+
     // Check if already installed (standalone mode)
     const standalone = window.matchMedia("(display-mode: standalone)").matches 
       || (window.navigator as any).standalone === true;
