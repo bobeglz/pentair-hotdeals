@@ -4,6 +4,7 @@ import "./globals.css";
 import { OfflineBanner } from "@/components/OfflineBanner";
 import { ServiceWorkerRegistration } from "@/components/ServiceWorkerRegistration";
 import { Providers } from "@/components/Providers";
+import { InstallPrompt } from "@/components/InstallPrompt";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -62,6 +63,7 @@ export default function RootLayout({
         <Providers>
           <ServiceWorkerRegistration />
           <OfflineBanner />
+          <InstallPrompt />
           {children}
         </Providers>
       </body>
