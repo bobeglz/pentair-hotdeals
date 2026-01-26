@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { OfflineBanner } from "@/components/OfflineBanner";
+import { ServiceWorkerRegistration } from "@/components/ServiceWorkerRegistration";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -15,6 +17,23 @@ export const metadata: Metadata = {
     capable: true,
     statusBarStyle: "black-translucent",
     title: "Pentair Hot Deals",
+  },
+  icons: {
+    apple: "/icon-192.png",
+  },
+  openGraph: {
+    title: "Pentair Hot Deals LATAM",
+    description: "Consulta rebates de productos Pentair",
+    images: ["/logos/pentair-logo.png"],
+    type: "website",
+    locale: "es_MX",
+    siteName: "Pentair Hot Deals",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Pentair Hot Deals LATAM",
+    description: "Consulta rebates de productos Pentair",
+    images: ["/logos/pentair-logo.png"],
   },
 };
 
@@ -33,13 +52,13 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head>
-        <script
-          defer
-          data-domain="pentairlatam.com"
-          src="https://plausible.io/js/script.js"
-        />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <link rel="apple-touch-icon" href="/icon-192.png" />
       </head>
       <body className={`${inter.variable} font-sans`}>
+        <ServiceWorkerRegistration />
+        <OfflineBanner />
         {children}
       </body>
     </html>

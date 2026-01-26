@@ -1,12 +1,16 @@
 {
+  "id": "pentair-hotdeals-latam",
   "name": "Pentair Hot Deals LATAM",
   "short_name": "Hot Deals",
   "description": "Consulta rebates de productos Pentair para Latinoamérica",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#FFFFFF",
   "theme_color": "#005A8C",
   "orientation": "portrait",
+  "lang": "es",
+  "categories": ["business", "utilities"],
   "icons": [
     {
       "src": "/icon-192.png",
