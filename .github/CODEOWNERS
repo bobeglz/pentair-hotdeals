@@ -1,0 +1,3 @@
+# Default reviewer for all pull requests in Plexiz-Media.
+# GitHub automatically requests this reviewer when a PR changes any file.
+* @bobeglz
